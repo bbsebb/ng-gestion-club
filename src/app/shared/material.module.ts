@@ -7,6 +7,8 @@ import { MatIconModule } from "@angular/material/icon";
 import { LayoutModule } from "@angular/cdk/layout";
 import { MatListModule } from "@angular/material/list";
 import { MatCardModule } from "@angular/material/card";
+import { MatTableModule } from "@angular/material/table";
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 @NgModule({
   exports: [
@@ -18,6 +20,8 @@ import { MatCardModule } from "@angular/material/card";
     MatIconModule,
     LayoutModule,
     MatListModule,
-    MatCardModule ]
+    MatCardModule,
+  MatTableModule,
+MatPaginatorModule ]
 })
 export class MaterialModule { }

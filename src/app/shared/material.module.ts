@@ -9,6 +9,7 @@ import { MatListModule } from "@angular/material/list";
 import { MatCardModule } from "@angular/material/card";
 import { MatTableModule } from "@angular/material/table";
 import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatChipsModule } from "@angular/material/chips";
 
 @NgModule({
   exports: [
@@ -22,6 +23,7 @@ import { MatPaginatorModule } from "@angular/material/paginator";
     MatListModule,
     MatCardModule,
   MatTableModule,
-MatPaginatorModule ]
+MatPaginatorModule,
+MatChipsModule ]
 })
 export class MaterialModule { }

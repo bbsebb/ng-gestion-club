@@ -1,22 +1,34 @@
-
-
 <div class="container">
-<div class="container mat-elevation-z5">
-<table mat-table [dataSource]="dataSource" >
-  <ng-container matColumnDef="recevant">
-    <th mat-header-cell *matHeaderCellDef>Recevant</th>
-    <td mat-cell *matCellDef="let game">{{ game.nameClubRec }}</td>
-  </ng-container>
-  <ng-container matColumnDef="visiteur">
-    <th mat-header-cell *matHeaderCellDef>Visiteur</th>
-    <td mat-cell *matCellDef="let game">{{ game.nameClubVis }}</td>
-  </ng-container>
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-<mat-paginator [pageSizeOptions]="[5, 10, 20]"
-showFirstLastButtons
-aria-label="Select page of periodic elements">
-</mat-paginator>
-</div>
+  <mat-chip-list selectable multiple aria-label="filter selection">
+    <mat-chip
+      *ngFor="let chipElement of chipsInfo"
+      #c="matChip"
+      (click)="onClick(c)"
+      [value]="chipElement.name"
+    >
+      {{ chipElement.name | titlecase }}
+    </mat-chip>
+  </mat-chip-list>
+
+  <div class="container mat-elevation-z5">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="recevant">
+        <th mat-header-cell *matHeaderCellDef>Recevant</th>
+        <td mat-cell *matCellDef="let game">{{ game.nameClubRec }}</td>
+      </ng-container>
+      <ng-container matColumnDef="visiteur">
+        <th mat-header-cell *matHeaderCellDef>Visiteur</th>
+        <td mat-cell *matCellDef="let game">{{ game.nameClubVis }}</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </div>
 </div>

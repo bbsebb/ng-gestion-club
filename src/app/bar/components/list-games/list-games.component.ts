@@ -2,9 +2,10 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatChip } from '@angular/material/chips';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { map, Observable, of, tap } from 'rxjs';
+import { map, Observable, of, Subject, take, tap } from 'rxjs';
+import { IChips, IfilterInfo } from 'src/app/shared/models/chips.model';
 import { Game } from 'src/app/shared/models/game.model';
-import { GamesService } from 'src/app/shared/services/games.service';
+import { GamesService } from '../../services/games.service';
 
 @Component({
   selector: 'app-list-games',
@@ -12,18 +13,29 @@ import { GamesService } from 'src/app/shared/services/games.service';
   styleUrls: ['./list-games.component.scss'],
 })
 export class ListGamesComponent implements OnInit, AfterViewInit {
-  chipsInfo: IChips[] = [
-    { name: 'Mes créneaux', nameField: 'id', filter: '5', selected: false },
+  chipsInfo: IChips<Game>[] = [
     {
-      name: 'Créneaux libre',
-      nameField: 'nameClubRec',
-      filter: 'Hoenheim',
+      name: 'Test id = 5',
       selected: false,
+      filterInfo: {
+        nameField: 'id',
+        filterFn: (name: number) => name == 5,
+      },
+
+    },
+    {
+      name: 'Test Hoenheim sur recevant',
+      selected: false,
+      filterInfo: {
+        nameField: 'nameClubRec',
+        filterFn: (name: string) => name.trim().toLowerCase().includes('hoenheim'),
+      },
     },
   ];
 
+  chipFilters: {chipName:string, filtersInfo: IfilterInfo<Game> } [] = [];
+
   dataSource = new MatTableDataSource<Game>();
-  games$!: Observable<Game[]>;
 
   displayedColumns: string[] = ['visiteur', 'recevant'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -31,57 +43,34 @@ export class ListGamesComponent implements OnInit, AfterViewInit {
   constructor(private gamesService: GamesService) {}
 
   ngOnInit(): void {
-    this.dataSource.filterPredicate = this.createFilter(this.chipsInfo);
-    this.games$ = this.gamesService.getAllGames().pipe(
-      tap((games) => {
-        this.dataSource.data = games;
-      })
-    );
-    this.games$.subscribe();
+    this.filterData().subscribe();
   }
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
   }
 
-  onClick(chip: MatChip): void {
+  onChipFilter(chip: string): void {
+
     for (const chipInfo of this.chipsInfo) {
-      if (chip.value === chipInfo.name) {
+      if(chip == chipInfo.name  ) {
         chipInfo.selected = !chipInfo.selected;
+        if(chipInfo.selected) {
+          this.chipFilters.push({chipName:chipInfo.name,filtersInfo:chipInfo.filterInfo});
+        } else {
+          this.chipFilters = this.chipFilters.filter(fi => fi.chipName != chipInfo.name);
+        }
       }
     }
-    console.table(this.chipsInfo);
-    this.updateFilter();
-    chip.toggleSelected();
+    this.filterData(this.chipFilters.map(filtersInfoArray => filtersInfoArray.filtersInfo)).subscribe();
   }
 
-  createFilter(filtersInfo: IChips[]) {
-    let filterFunction = (data: any, filter: string): boolean => {
-      let flag = true;
-      filtersInfo.forEach((chips) => {
-        if(chips.selected) {
-        flag = flag && (
-          data[chips.nameField]
-            .toString()
-            .trim()
-            .toLocaleLowerCase()==chips.filter.trim()
-            .toLocaleLowerCase());
-    }});
-      return flag;
-    };
-    return filterFunction;
-  }
-
-  updateFilter():void {
-    this.dataSource.filter = 'update';
+  private filterData(filtersInfo?:IfilterInfo<Game>[]): Observable<Game[]> {
+    return this.gamesService.getAllGames(filtersInfo).pipe(
+      tap((games) => {
+        this.dataSource.data = games;
+      })
+    );
   }
 }
 
-
-
-interface IChips {
-  name: string;
-  nameField: string;
-  filter: string;
-  selected: boolean;
-}

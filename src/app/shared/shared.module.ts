@@ -4,11 +4,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { TableChipFilterComponent } from './components/table-chip-filter/table-chip-filter.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    TableChipFilterComponent
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -20,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MaterialModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    TableChipFilterComponent
   ]
 })
 export class SharedModule { }

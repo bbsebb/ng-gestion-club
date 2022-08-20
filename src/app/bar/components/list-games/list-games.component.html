@@ -1,14 +1,6 @@
 <div class="container">
-  <mat-chip-list selectable multiple aria-label="filter selection">
-    <mat-chip
-      *ngFor="let chipElement of chipsInfo"
-      #c="matChip"
-      (click)="onClick(c)"
-      [value]="chipElement.name"
-    >
-      {{ chipElement.name | titlecase }}
-    </mat-chip>
-  </mat-chip-list>
+  <app-table-chip-filter [chips]="chipsInfo" (eventChipFilter)="onChipFilter($event)"></app-table-chip-filter>
+
 
   <div class="container mat-elevation-z5">
     <table mat-table [dataSource]="dataSource">

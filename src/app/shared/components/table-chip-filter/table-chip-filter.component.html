@@ -1,0 +1,10 @@
+<mat-chip-list selectable multiple aria-label="filter selection">
+  <mat-chip
+    *ngFor="let chipElement of chips"
+    #c="matChip"
+    (click)="onChipFilter(c)"
+    [value]="chipElement.name"
+  >
+    {{ chipElement.name | titlecase }}
+  </mat-chip>
+</mat-chip-list>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { IfilterInfo } from '../models/chips.model';
+import { IChipFilters } from '../models/chip-filters.model';
+
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +8,7 @@ import { IfilterInfo } from '../models/chips.model';
 export class ChipsService {
   constructor() {}
 
-  createFilter<T>(game: T, filters: IfilterInfo<T>[]): boolean {
+  createFilter<T>(game: T, filters: IChipFilters<T>[]): boolean {
     let flag = true;
     for (const filter of filters) {
       flag &&= filter.filterFn(game[filter.nameField]);

@@ -3,7 +3,8 @@ import { MatChip } from '@angular/material/chips';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { map, Observable, of, Subject, take, tap } from 'rxjs';
-import { IChips, IfilterInfo } from 'src/app/shared/models/chips.model';
+import { ChipFilters, IChipFilters } from 'src/app/shared/models/chip-filters.model';
+import { IChips } from 'src/app/shared/models/chips.model';
 import { Game } from 'src/app/shared/models/game.model';
 import { GamesService } from '../../services/games.service';
 
@@ -18,32 +19,34 @@ export class ListGamesComponent implements OnInit, AfterViewInit {
       name: 'Test id = 5',
       selected: false,
       filterInfo: {
-        nameField: 'id',
-        filterFn: (name: number) => name == 5,
+        nameField: 'barmans',
+        filterFn: (name: {id:number}[]) =>  name.some(barman => barman.id == 5)
       },
-
     },
     {
       name: 'Test Hoenheim sur recevant',
       selected: false,
-      filterInfo: {
-        nameField: 'nameClubRec',
-        filterFn: (name: string) => name.trim().toLowerCase().includes('hoenheim'),
-      },
+      filterInfo: ChipFilters.filterByName<Game>('nameClubRec','hoenheim'),
     },
+    {
+      name: 'Test new WE',
+      selected: false,
+      filterInfo: ChipFilters.filterByNextWE<Game>('datetime'),
+    }
   ];
 
-  chipFilters: {chipName:string, filtersInfo: IfilterInfo<Game> } [] = [];
+  chipFilters: {chipName:string, filtersInfo: IChipFilters<Game> } [] = [];
 
   dataSource = new MatTableDataSource<Game>();
 
-  displayedColumns: string[] = ['visiteur', 'recevant'];
+  displayedColumns: string[] = ['competition','day','datetime', 'recevant','visiteur','nameHalle','city'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private gamesService: GamesService) {}
 
   ngOnInit(): void {
     this.filterData().subscribe();
+
   }
 
   ngAfterViewInit(): void {
@@ -65,7 +68,8 @@ export class ListGamesComponent implements OnInit, AfterViewInit {
     this.filterData(this.chipFilters.map(filtersInfoArray => filtersInfoArray.filtersInfo)).subscribe();
   }
 
-  private filterData(filtersInfo?:IfilterInfo<Game>[]): Observable<Game[]> {
+  private filterData(filtersInfo?:IChipFilters<Game>[]): Observable<Game[]> {
+
     return this.gamesService.getAllGames(filtersInfo).pipe(
       tap((games) => {
         this.dataSource.data = games;

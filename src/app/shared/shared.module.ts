@@ -5,12 +5,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { TableChipFilterComponent } from './components/table-chip-filter/table-chip-filter.component';
+import { BetterDatePipe } from './pipes/better-date.pipe';
 
 
 
 @NgModule({
   declarations: [
-    TableChipFilterComponent
+    TableChipFilterComponent,
+    BetterDatePipe
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { TableChipFilterComponent } from './components/table-chip-filter/table-c
     MaterialModule,
     FlexLayoutModule,
     HttpClientModule,
-    TableChipFilterComponent
+    TableChipFilterComponent,
+    BetterDatePipe
   ]
 })
 export class SharedModule { }

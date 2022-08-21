@@ -4,6 +4,18 @@
 
   <div class="container mat-elevation-z5">
     <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="competition">
+        <th mat-header-cell *matHeaderCellDef>Competition</th>
+        <td mat-cell *matCellDef="let game">{{ game.competition }}</td>
+      </ng-container>
+      <ng-container matColumnDef="day">
+        <th mat-header-cell *matHeaderCellDef>Journée</th>
+        <td mat-cell *matCellDef="let game">{{ game.day }}</td>
+      </ng-container>
+      <ng-container matColumnDef="datetime">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let game">{{ game.datetime | date }}</td>
+      </ng-container>
       <ng-container matColumnDef="recevant">
         <th mat-header-cell *matHeaderCellDef>Recevant</th>
         <td mat-cell *matCellDef="let game">{{ game.nameClubRec }}</td>
@@ -12,6 +24,15 @@
         <th mat-header-cell *matHeaderCellDef>Visiteur</th>
         <td mat-cell *matCellDef="let game">{{ game.nameClubVis }}</td>
       </ng-container>
+      <ng-container matColumnDef="nameHalle">
+        <th mat-header-cell *matHeaderCellDef>Gymnase</th>
+        <td mat-cell *matCellDef="let game">{{ game.nameHalle }}</td>
+      </ng-container>
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef>Ville</th>
+        <td mat-cell *matCellDef="let game">{{ game.cityHalle }}</td>
+      </ng-container>
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>

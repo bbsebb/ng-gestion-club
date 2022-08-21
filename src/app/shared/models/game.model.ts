@@ -5,8 +5,7 @@ export interface Game {
   numGroup: string;
   nameGroup: string;
   day: number;
-  date: Date;
-  time: Date;
+  datetime: Date;
   nameClubRec: string;
   numClubRec:number;
   nameClubVis: string;
@@ -17,4 +16,7 @@ export interface Game {
   addressHalle: string;
   cpHalle: string;
   cityHalle: string;
+  barmans: [
+    id: number,
+  ]
 }

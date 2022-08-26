@@ -1,0 +1,32 @@
+.background {
+  height: 100px;
+  width: 200px;
+}
+.forground {
+  height: 100px;
+  width: 200px;
+}
+.primary {
+  height: 100px;
+  width: 200px;
+}
+.accent {
+  height: 100px;
+  width: 200px;
+}
+.warn {
+  height: 100px;
+  width: 200px;
+}
+
+
+.container {
+  background-color: black;
+  color: white;
+  margin: 10px;
+  border-radius: 4px;
+  .info-game div {
+    background-color: blue;
+  }
+}
+

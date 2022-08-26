@@ -6,13 +6,15 @@ import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { TableChipFilterComponent } from './components/table-chip-filter/table-chip-filter.component';
 import { BetterDatePipe } from './pipes/better-date.pipe';
+import { SingleGameComponent } from './components/single-game/single-game.component';
 
 
 
 @NgModule({
   declarations: [
     TableChipFilterComponent,
-    BetterDatePipe
+    BetterDatePipe,
+    SingleGameComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { BetterDatePipe } from './pipes/better-date.pipe';
     FlexLayoutModule,
     HttpClientModule,
     TableChipFilterComponent,
-    BetterDatePipe
+    BetterDatePipe,
+    SingleGameComponent
   ]
 })
 export class SharedModule { }

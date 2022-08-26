@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SingleGameComponent } from '../shared/components/single-game/single-game.component';
 import { BarComponent } from './components/bar/bar.component';
 import { ListGamesComponent } from './components/list-games/list-games.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
-import { SingleGameComponent } from './components/single-game/single-game.component';
+
 import { SingleUserComponent } from './components/single-user/single-user.component';
 
 

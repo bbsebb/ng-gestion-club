@@ -1,32 +1,33 @@
-.background {
-  height: 100px;
-  width: 200px;
-}
-.forground {
-  height: 100px;
-  width: 200px;
-}
-.primary {
-  height: 100px;
-  width: 200px;
-}
-.accent {
-  height: 100px;
-  width: 200px;
-}
-.warn {
-  height: 100px;
-  width: 200px;
-}
 
 
 .container {
-  background-color: black;
-  color: white;
   margin: 10px;
   border-radius: 4px;
+  padding: 10px;
+
+
   .info-game div {
-    background-color: blue;
+    padding: 5px 5px;
+    border-radius: 4px;
+
   }
+
+  .game {
+    padding: 5px 5px;
+    border-radius: 4px;
+    margin-top:10px;
+  }
+
+  .game-status {
+    border-radius: 4px;
+
+    padding: 5px 5px;
+  }
+
+  .game-fdme{
+    width: 100%;
+  }
+
+
 }
 

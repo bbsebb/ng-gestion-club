@@ -7,7 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ListGamesComponent } from './components/list-games/list-games.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { SingleUserComponent } from './components/single-user/single-user.component';
-import { GamesService } from './services/games.service';
+import { GamesService } from '../shared/services/games.service';
 
 
 
@@ -22,7 +22,7 @@ import { GamesService } from './services/games.service';
     CommonModule,
     BarRoutingModule,
     SharedModule
-  ],
-  providers: [GamesService]
+  ]
+
 })
 export class BarModule { }

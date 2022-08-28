@@ -1,12 +1,12 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatChip } from '@angular/material/chips';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { map, Observable, of, Subject, take, tap } from 'rxjs';
+import { Router } from '@angular/router';
+import {  Observable, tap } from 'rxjs';
 import { ChipFilters, IChipFilters } from 'src/app/shared/models/chip-filters.model';
 import { IChips } from 'src/app/shared/models/chips.model';
 import { Game } from 'src/app/shared/models/game.model';
-import { GamesService } from '../../services/games.service';
+import { GamesService } from '../../../shared/services/games.service';
 
 @Component({
   selector: 'app-list-games',
@@ -42,7 +42,7 @@ export class ListGamesComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['competition','day','datetime', 'recevant','visiteur','nameHalle','city'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private gamesService: GamesService) {}
+  constructor(private gamesService: GamesService, private router: Router) {}
 
   ngOnInit(): void {
     this.filterData().subscribe();
@@ -66,6 +66,10 @@ export class ListGamesComponent implements OnInit, AfterViewInit {
       }
     }
     this.filterData(this.chipFilters.map(filtersInfoArray => filtersInfoArray.filtersInfo)).subscribe();
+  }
+
+  onClick(id : number): void {
+    this.router.navigateByUrl(`/bar/list-games/${id}`);
   }
 
   private filterData(filtersInfo?:IChipFilters<Game>[]): Observable<Game[]> {

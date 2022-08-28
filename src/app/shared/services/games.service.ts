@@ -6,21 +6,31 @@ import { Game } from 'src/app/shared/models/game.model';
 import { ChipsService } from 'src/app/shared/services/chips.service';
 import { environment } from 'src/environments/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class GamesService {
-
-  constructor(private httpClient: HttpClient,private chipsService:ChipsService) {}
+  constructor(
+    private httpClient: HttpClient,
+    private chipsService: ChipsService
+  ) {}
 
   getAllGames(filtersInfo?: IChipFilters<Game>[]): Observable<Game[]> {
     let games$ = this.httpClient.get<Game[]>(`${environment.urlServer}/games`);
     if (filtersInfo) {
       games$ = games$.pipe(
         map((games) =>
-        games.filter((game) => this.chipsService.createFilter(game,filtersInfo))
+          games.filter((game) =>
+            this.chipsService.createFilter(game, filtersInfo)
+          )
         )
       );
     }
 
     return games$;
+  }
+
+  getGameById(id:number): Observable<Game> {
+    return this.httpClient.get<Game>(`${environment.urlServer}/games/${id}`);
   }
 }

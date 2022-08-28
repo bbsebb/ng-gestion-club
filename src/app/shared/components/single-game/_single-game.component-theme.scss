@@ -31,13 +31,27 @@
     background-color:mat.get-color-from-palette($foreground-palette);
     color:mat.get-color-from-palette($foreground-palette,default-contrast);
   };
+
+  .container {
+    background-color:mat.get-color-from-palette($background-palette,card);
+  color: mat.get-color-from-palette($foreground-palette,default-contrast);
+  }
+
+  .info-division {
+  background-color: mat.get-color-from-palette($primary-palette,300);
+  color: mat.get-color-from-palette($foreground-palette,default-contrast);
+  }
+
+  .game-status
+  {
+    background-color:mat.get-color-from-palette($accent-palette);
+    color: mat.get-color-from-palette($accent-palette,default-contrast);
+  }
 }
 
 @mixin typography($theme) {
   $typography-config: mat.get-typography-config($theme);
-  .info-haut {
-    font-family: mat.font-family($typography-config);;
-  }
+
 }
 
 @mixin theme($theme) {

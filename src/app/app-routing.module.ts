@@ -6,7 +6,8 @@ import { IndexComponent } from './index/index.component';
 const routes: Routes = [
   { path: 'bar', loadChildren: () => import('./bar/bar.module').then(m => m.BarModule) },
   { path: 'player', loadChildren: () => import('./player/player.module').then(m => m.PlayerModule) },
-  { path: '', component: IndexComponent},
+  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
+  { path: '', pathMatch: 'full', component: IndexComponent},
   { path: '**', component: PathNotFoundComponent }
 ];
 

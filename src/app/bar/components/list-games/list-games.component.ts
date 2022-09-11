@@ -3,10 +3,11 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import {  Observable, tap } from 'rxjs';
-import { ChipFilters, IChipFilters } from 'src/app/shared/models/chip-filters.model';
+import { Filters, GameFilters, IFilters } from 'src/app/shared/models/filters.model';
 import { IChips } from 'src/app/shared/models/chips.model';
-import { Game } from 'src/app/shared/models/game.model';
-import { GamesService } from '../../../shared/services/games.service';
+import { Game } from 'src/app/core/models/game.model';
+import { GamesService } from 'src/app/core/services/games.service';
+
 
 @Component({
   selector: 'app-list-games',
@@ -19,27 +20,27 @@ export class ListGamesComponent implements OnInit, AfterViewInit {
       name: 'Test id = 5',
       selected: false,
       filterInfo: {
-        nameField: 'barmans',
+        nameField: 'barmen',
         filterFn: (name: {id:number}[]) =>  name.some(barman => barman.id == 5)
       },
     },
     {
       name: 'Test Hoenheim sur recevant',
       selected: false,
-      filterInfo: ChipFilters.filterByName<Game>('nameClubRec','hoenheim'),
+      filterInfo: Filters.filterByName<Game>('nameClubRec','hoenheim'),
     },
     {
       name: 'Test new WE',
       selected: false,
-      filterInfo: ChipFilters.filterByNextWE<Game>('datetime'),
+      filterInfo: GameFilters.filterByNextWE('datetime'),
     }
   ];
 
-  chipFilters: {chipName:string, filtersInfo: IChipFilters<Game> } [] = [];
+  chipFilters: {chipName:string, filtersInfo: IFilters<Game> } [] = [];
 
   dataSource = new MatTableDataSource<Game>();
 
-  displayedColumns: string[] = ['competition','day','datetime', 'recevant','visiteur','nameHalle','city'];
+  displayedColumns: string[] = ['day','competition','datetime', 'recevant','visiteur','nameHalle','city'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private gamesService: GamesService, private router: Router) {}
@@ -72,7 +73,7 @@ export class ListGamesComponent implements OnInit, AfterViewInit {
     this.router.navigateByUrl(`/bar/list-games/${id}`);
   }
 
-  private filterData(filtersInfo?:IChipFilters<Game>[]): Observable<Game[]> {
+  private filterData(filtersInfo?:IFilters<Game>[]): Observable<Game[]> {
 
     return this.gamesService.getAllGames(filtersInfo).pipe(
       tap((games) => {

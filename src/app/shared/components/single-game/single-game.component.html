@@ -1,114 +1,135 @@
-<div class="container mat-elevation-z3" *ngIf="game$ | async as game">
-  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="5px" class="info-game">
-    <div fxFlex="2 1 70%" class="info-date-place">
-      <!-- cadre haut gauche -->
-      <div
-        class="info-date mat-body-2"
-        fxLayout="row"
-        fxLayoutAlign="space-between center"
-        fxLayoutGap="10px"
-      >
-        <span fxFlex="initial">J{{ game.day }}</span>
-        <span fxFlex="grow">{{
-          game.datetime | date: "cccc d MMMM yyyy"
-        }}</span>
-        <span fxFlex="initial">{{ game.datetime | date: "HH:mm" }}</span>
-      </div>
-      <mat-accordion>
-        <mat-expansion-panel class="mat-elevation-z0">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              {{ game.nameHalle }}
-            </mat-panel-title>
-            <mat-panel-description>
-              {{ game.cityHalle }}
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <p>
-            {{ game.addressHalle }} {{ game.cpHalle }} {{ game.cityHalle }} -
-            {{ game.glue }}
-          </p>
-        </mat-expansion-panel>
-      </mat-accordion>
-
-      <!--       <div class="info-place mat-body-1" fxLayout="row" fxLayoutAlign="space-between center">
-        <span>Gymnase Municipal</span>
-        <span>Hoenheim</span>
-      </div> -->
-    </div>
-    <!-- cadre haut droit -->
-    <div
-      class="info-division mat-elevation-z2"
-      fxFlex="0 1 30%"
-      fxLayoutAlign="center center"
-    >
-      <div>{{ game.competition }}</div>
-      <div>{{ game.nameGroup }}</div>
-    </div>
-  </div>
-
-  <div fxLayout="column" fxLayoutGap="5px" class="info-bas">
-    <!-- cadre principal -->
-    <div
-      class="game"
-      fxFlex="grow"
-      fxLayout="column"
-      fxLayoutAlign="center center"
-    >
-      <div class="game-equipe mat-headline" fxLayoutAlign="center center">
-        {{ game.nameClubRec }} - {{ game.nameClubVis }}
-      </div>
-      <div class="game-score mat-title" fxLayoutAlign="center center">
-        {{ game.scoreclubRec }} - {{ game.scoreClubVis }}
-      </div>
-      <div class="game-status mat-subheading-2" fxLayoutAlign="center center">
-        {{ game.state }}
-      </div>
-      <div class="game-fdme mat-caption" fxLayoutAlign="space-between center">
-        <a mat-stroked-button [href]="game.fdme" target="_blank">FDME</a>
-        <button
-          (click)="onDisplayAddInfo()"
-          mat-mini-fab
-          color="primary"
-          aria-label="Affiche des infos supplémentaires"
-        >
-          <mat-icon>{{ iconeDisplayAddInfo }}</mat-icon>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-<ng-container *ngIf="displayAddInfo">
-  <!-- cadre Poule -->
+<ng-container *ngIf="game$ | async as game">
   <div class="container mat-elevation-z3">
-    Arbitre :
-    <span *ngIf="game.referee1">
-      {{ game.referee1 }}
-    </span>
-    - <span *ngIf="game.referee1">{{ game.referee2 }}</span>
-  </div>
+    <div
+      fxLayout="row"
+      fxLayout.xs="column"
+      fxLayoutGap="5px"
+      class="info-game"
+    >
+      <div fxFlex="2 1 70%" class="info-date-place">
+        <!-- cadre haut gauche -->
+        <div
+          class="info-date mat-body-2"
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+          fxLayoutGap="10px"
+        >
+          <span fxFlex="initial">J{{ game.day }}</span>
+          <span fxFlex="grow">{{
+            game.datetime
+              | date: "cccc d MMMM yyyy"
+              | nullSubstitution: " Date inconnue"
+          }}</span>
+          <span fxFlex="initial">{{
+            game.datetime | date: "HH:mm" | nullSubstitution: ""
+          }}</span>
+        </div>
+        <mat-accordion>
+          <mat-expansion-panel class="mat-elevation-z0">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{ game.nameHalle | nullSubstitution: "Lieu inconnu" }}
+              </mat-panel-title>
+              <mat-panel-description>
+                {{ game.cityHalle | nullSubstitution: "" }}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>
+              {{ game.addressHalle | nullSubstitution: "adresse inconnue" }}
+              {{ game.cpHalle | nullSubstitution: "" }}
+              {{ game.cityHalle | nullSubstitution: "" }} -
+              {{ game.glue | glue | uppercase }}
+            </p>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <!-- cadre haut droit -->
+      <div
+        class="info-division mat-elevation-z2"
+        fxFlex="0 1 30%"
+        fxLayoutAlign="center center"
+      >
+        <div>{{ game.competition }}</div>
+        <div>{{ game.nameGroup }}</div>
+      </div>
+    </div>
 
-  <!-- cadre arbitre -->
-  <div
-    class="container mat-elevation-z3"
-    *ngIf="game.state == 'joue' && game.timekeeper"
-  >
-    Chrono : {{ game.timekeeper }}
+    <div fxLayout="column" fxLayoutGap="5px" class="info-bas">
+      <!-- cadre principal -->
+      <div
+        class="game"
+        fxFlex="grow"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+      >
+        <div class="game-equipe mat-headline" fxLayoutAlign="center center">
+          {{ game.nameClubRec | uppercase }} -
+          {{ game.nameClubVis | uppercase }}
+        </div>
+        <div class="game-score mat-title" fxLayoutAlign="center center">
+          {{ game.scoreclubRec }} - {{ game.scoreClubVis }}
+        </div>
+        <div class="game-status mat-subheading-2" fxLayoutAlign="center center">
+          {{ game.state | uppercase }}
+        </div>
+        <div
+          class="game-fdme mat-caption"
+          fxLayout="row-reverse"
+          fxLayoutAlign="space-between center"
+        >
+          <a
+            mat-stroked-button
+            [href]="game.fdme"
+            target="_blank"
+            *ngIf="game.fdme"
+          >
+            FDME
+          </a>
+          <button
+            fxFlexOrder="-1"
+            (click)="onDisplayAddInfo()"
+            mat-mini-fab
+            color="primary"
+            aria-label="Affiche des infos supplémentaires"
+          >
+            <mat-icon>{{ iconeDisplayAddInfo }}</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
+  <ng-container *ngIf="displayAddInfo">
+    <!-- cadre Poule -->
+    <div class="container mat-elevation-z3">
+      Arbitre :
+      <span *ngIf="game.referee1">
+        {{ game.referee1 }}
+      </span>
+      - <span *ngIf="game.referee1">{{ game.referee2 }}</span>
+    </div>
 
-  <!-- cadre chrono -->
-  <div
-    class="container mat-elevation-z3"
-    *ngIf="game.state == 'joue' && game.secretary"
-  >
-    Secretaire : {{ game.secretary }}
-  </div>
+    <!-- cadre arbitre -->
+    <div
+      class="container mat-elevation-z3"
+      *ngIf="game.state == 'joué' && game.timekeeper"
+    >
+      Chrono : {{ game.timekeeper }}
+    </div>
 
-  <!-- cadre Secretaire -->
-  <div
-    class="container mat-elevation-z3"
-    *ngIf="game.state == 'joue' && game.halleManager"
-  >
-    Responsable salle : {{ game.halleManager }}
-  </div>
+    <!-- cadre chrono -->
+    <div
+      class="container mat-elevation-z3"
+      *ngIf="game.state == 'joué' && game.secretary"
+    >
+      Secretaire : {{ game.secretary }}
+    </div>
+
+    <!-- cadre Secretaire -->
+    <div
+      class="container mat-elevation-z3"
+      *ngIf="game.state == 'joué' && game.halleManager"
+    >
+      Responsable salle : {{ game.halleManager }}
+    </div>
+  </ng-container>
 </ng-container>

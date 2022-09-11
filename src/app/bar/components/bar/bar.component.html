@@ -10,9 +10,13 @@
       <mat-card-header>
         <mat-card-title>Prochaines rencontres</mat-card-title>
       </mat-card-header>
-      <mat-card-content fxFlex="grow"> content </mat-card-content>
+      <mat-card-content fxFlex="grow">
+        <app-list-games-card [games$]="nextGames$"></app-list-games-card>
+      </mat-card-content>
       <mat-card-actions fxLayout="row" fxLayoutAlign="end">
-        <a routerLink="/bar/list-games" mat-flat-button color="primary">Voir plus ...</a>
+        <a routerLink="/bar/list-games" mat-flat-button color="primary"
+          >Voir plus ...</a
+        >
       </mat-card-actions>
     </mat-card>
 
@@ -28,7 +32,9 @@
       </mat-card-header>
       <mat-card-content fxFlex="grow"> content </mat-card-content>
       <mat-card-actions fxLayout="row" fxLayoutAlign="end">
-        <a routerLink="/bar/list-games" mat-flat-button color="primary">Voir plus ...</a>
+        <a routerLink="/bar/list-games" mat-flat-button color="primary"
+          >Voir plus ...</a
+        >
       </mat-card-actions>
     </mat-card>
 
@@ -42,9 +48,13 @@
       <mat-card-header>
         <mat-card-title>Prochaine rencontre non couvertes</mat-card-title>
       </mat-card-header>
-      <mat-card-content fxFlex="grow"> content </mat-card-content>
+    <mat-card-content fxFlex="grow">
+      <app-list-games-card [games$]="gamesWithoutBarmen$"></app-list-games-card>
+    </mat-card-content>
       <mat-card-actions fxLayout="row" fxLayoutAlign="end">
-        <a routerLink="/bar/list-games" mat-flat-button color="primary">Voir plus ...</a>
+        <a routerLink="/bar/list-games" mat-flat-button color="primary"
+          >Voir plus ...</a
+        >
       </mat-card-actions>
     </mat-card>
 
@@ -56,12 +66,18 @@
       fxLayout="column"
     >
       <mat-card-header>
-        <mat-card-title>Liste des barmans</mat-card-title>
+        <mat-card-title>Liste des barmen</mat-card-title>
       </mat-card-header>
-      <mat-card-content fxFlex="grow"> content </mat-card-content>
+      <mat-card-content fxFlex="grow">
+        <app-list-users-card [user$]="barmen$"></app-list-users-card>
+      </mat-card-content>
       <mat-card-actions fxLayout="row" fxLayoutAlign="end">
-        <a routerLink="/bar/list-users" mat-flat-button color="primary">Voir plus ...</a>
+        <a routerLink="/bar/list-users" mat-flat-button color="primary"
+          >Voir plus ...</a
+        >
       </mat-card-actions>
     </mat-card>
   </div>
 </div>
+
+

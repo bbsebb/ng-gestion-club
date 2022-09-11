@@ -1,9 +1,9 @@
-import { IChipFilters } from "./chip-filters.model";
+import { Filters } from "./filters.model";
 
 export interface IChips<T> {
   name: string;
   selected: boolean;
-  filterInfo:IChipFilters<T>
+  filterInfo:Filters<T>
 }
 
 

@@ -1,740 +1,784 @@
 {
+  "users": [
+    {
+      "id": 0,
+      "name": "Burckhardt",
+      "forename": "Sébastien",
+      "email": "sebastien.burckhardt@gmail.com",
+      "password": "1234",
+      "tel": "0638937416",
+      "picture": "assets/images/test.jpg",
+      "roles": [
+        {
+          "role": "USER",
+          "activated": true
+        },
+        {
+          "role": "BAR",
+          "activated": true
+        },
+        {
+          "role": "ADMIN",
+          "activated": true
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Gross",
+      "forename": "Vivien",
+      "email": "sebastien.burckhardt@gmail.com",
+      "password": null,
+      "tel": "0638937416",
+      "roles": [
+        {
+          "role": "USER",
+          "activated": true
+        },
+        {
+          "role": "BAR",
+          "activated": false
+        }
+      ]
+    }
+  ],
   "games": [
-      {
-          "id": 0,
-          "code": "SAEEHAY",
-          "competition": "nationale 2 feminine 2022-23",
-          "numGroup": "F50000205G",
-          "nameGroup": "POULE 6",
-          "day": 1,
-          "datetime": "2022-09-11T00:00:00.000",
-          "nameClubRec": "COLMAR CENTRE ALSACE",
-          "numClubRec": 5668119,
-          "nameClubVis": "HOENHEIM",
-          "numClubVis": 5667028,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "MONTAGNE VERTE",
-          "addressHalle": " place de la montagne verte",
-          "cpHalle": 68000,
-          "cityHalle": "COLMAR",
-          "barmans": [
-              {
-                  "id": 1
-              },
-              {
-                  "id": 2
-              },
-              {
-                  "id": 3
-              },
-              {
-                  "id": 4
-              },
-              {
-                  "id": 5
-              }
-          ]
-      },
-      {
-          "id": 1,
-          "code": "SAEEPFO",
-          "competition": "67-01 1ere division territoriale masculins",
-          "numGroup": "M56670300G",
-          "nameGroup": "67-01 1DTM1",
-          "day": 1,
-          "fdme": "http://google.fr",
-          "datetime": "2022-09-16T00:00:00.000",
-          "nameClubRec": "STRASBOURG ASPTT SM1",
-          "numClubRec": 5667006,
-          "nameClubVis": "HOENHEIM SM2",
-          "numClubVis": 5667028,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "CENTRE SPORTIF OUEST",
-          "addressHalle": "6 , chemin long",
-          "cpHalle": 67200,
-          "cityHalle": "STRASBOURG",
-          "barmans": [
-              {
-                  "id": 1
-              },
-              {
-                  "id": 2
-              }
-          ]
-      },
-      {
-          "id": 2,
-          "code": "SAEEPWS",
-          "competition": "67-03 3e division territoriale masculins",
-          "numGroup": "M56670200G",
-          "nameGroup": "D3TM PLE A",
-          "day": 1,
-          "datetime": null,
-          "nameClubRec": "ALPHA HANDBALL SM2",
-          "numClubRec": 5667117,
-          "nameClubVis": "HOENHEIM SM3",
-          "numClubVis": 5667028,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": []
-      },
-      {
-          "id": 3,
-          "code": "SAEEQIY",
-          "competition": "67-11 1ere division territoriale feminines",
-          "numGroup": "F56670001G",
-          "nameGroup": "D1TF",
-          "day": 1,
-          "datetime": null,
-          "nameClubRec": "HOENHEIM SF2",
-          "numClubRec": 5667028,
-          "nameClubVis": "REICHSTETT SF2",
-          "numClubVis": 5667045,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": [
-              {
-                  "id": 1
-              }
-          ]
-      },
-      {
-          "id": 4,
-          "code": "SAEFAFT",
-          "competition": "67-12 2e division territoriale feminine",
-          "numGroup": "F56670100G",
-          "nameGroup": "D2TF PLE A",
-          "day": 1,
-          "datetime": null,
-          "nameClubRec": "HOENHEIM SF3",
-          "numClubRec": 5667028,
-          "nameClubVis": "AVENIR DURSTEL SARREBOURG SF1",
-          "numClubVis": 5667021,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": [
-              {
-                  "id": 1
-              },
-              {
-                  "id": 2
-              }
-          ]
-      },
-      {
-          "id": 5,
-          "code": "SAEEWAZ",
-          "competition": "56-01 championnat prenationale masculin",
-          "numGroup": "M56000001G",
-          "nameGroup": "56-PRENAT M",
-          "day": 1,
-          "datetime": null,
-          "nameClubRec": "HOENHEIM",
-          "numClubRec": 5667028,
-          "nameClubVis": "TAISSY",
-          "numClubVis": 5651014,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": [
-              {
-                  "id": 1
-              }
-          ]
-      },
-      {
-          "id": 6,
-          "code": "SAEEHBE",
-          "competition": "nationale 2 feminine 2022-23",
-          "numGroup": "F50000205G",
-          "nameGroup": "POULE 6",
-          "day": 2,
-          "datetime": "2022-09-17T00:00:00.000",
-          "nameClubRec": "HOENHEIM",
-          "numClubRec": 5667028,
-          "nameClubVis": "ENTENTE SAONE MAMIROLLE HB",
-          "numClubVis": 5225025,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "GYMNASE MUNICIPAL",
-          "addressHalle": "16 , rue des vosges",
-          "cpHalle": 67800,
-          "cityHalle": "HOENHEIM",
-          "barmans": [
-              {
-                  "id": 1
-              },
-              {
-                  "id": 2
-              }
-          ]
-      },
-      {
-          "id": 7,
-          "code": "SAEEPFU",
-          "competition": "67-01 1ere division territoriale masculins",
-          "numGroup": "M56670300G",
-          "nameGroup": "67-01 1DTM1",
-          "day": 2,
-          "datetime": null,
-          "nameClubRec": "HOENHEIM SM2",
-          "numClubRec": 5667028,
-          "nameClubVis": "SOULTZ KUTZENHAUSEN SM1",
-          "numClubVis": 5667095,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": [
-              {
-                  "id": 1
-              },
-              {
-                  "id": 2
-              },
-              {
-                  "id": 3
-              }
-          ]
-      },
-      {
-          "id": 8,
-          "code": "SAEEQJF",
-          "competition": "67-11 1ere division territoriale feminines",
-          "numGroup": "F56670001G",
-          "nameGroup": "D1TF",
-          "day": 2,
-          "datetime": null,
-          "nameClubRec": "SELTZ SF2",
-          "numClubRec": 5667048,
-          "nameClubVis": "HOENHEIM SF2",
-          "numClubVis": 5667028,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": []
-      },
-      {
-          "id": 9,
-          "code": "SAEFAGA",
-          "competition": "67-12 2e division territoriale feminine",
-          "numGroup": "F56670100G",
-          "nameGroup": "D2TF PLE A",
-          "day": 2,
-          "datetime": null,
-          "nameClubRec": "SELTZ SF3",
-          "numClubRec": 5667048,
-          "nameClubVis": "HOENHEIM SF3",
-          "numClubVis": 5667028,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": [
-              {
-                  "id": 1
-              },
-              {
-                  "id": 2
-              },
-              {
-                  "id": 3
-              }
-          ]
-      },
-      {
-          "id": 10,
-          "code": "SAEEWBE",
-          "competition": "56-01 championnat prenationale masculin",
-          "numGroup": "M56000001G",
-          "nameGroup": "56-PRENAT M",
-          "day": 2,
-          "datetime": null,
-          "nameClubRec": "RC EPERNAY",
-          "numClubRec": 5651005,
-          "nameClubVis": "HOENHEIM",
-          "numClubVis": 5667028,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": [
-              {
-                  "id": 1
-              },
-              {
-                  "id": 2
-              },
-              {
-                  "id": 3
-              }
-          ]
-      },
-      {
-          "id": 11,
-          "code": "SAEEYPI",
-          "competition": "56-06 championnat u18 masculin",
-          "numGroup": "M56003503G",
-          "nameGroup": "56-U18M EXCEL POULE 3",
-          "day": 1,
-          "datetime": null,
-          "nameClubRec": "WITTENHEIM/ENSISHEIM U18M",
-          "numClubRec": 5668049,
-          "nameClubVis": "HOENHEIM U18M",
-          "numClubVis": 5667028,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": [
-              {
-                  "id": 1
-              }
-          ]
-      },
-      {
-          "id": 12,
-          "code": "SAEEHBJ",
-          "competition": "nationale 2 feminine 2022-23",
-          "numGroup": "F50000205G",
-          "nameGroup": "POULE 6",
-          "day": 3,
-          "datetime": "2022-09-24T00:00:00.000",
-          "nameClubRec": "CA PONTARLIER HANDBALL",
-          "numClubRec": 5225012,
-          "nameClubVis": "HOENHEIM",
-          "numClubVis": 5667028,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "GYMNASE DU LARMONT",
-          "addressHalle": " route du larmont",
-          "cpHalle": 25300,
-          "cityHalle": "PONTARLIER",
-          "barmans": []
-      },
-      {
-          "id": 13,
-          "code": "SAEEPGA",
-          "competition": "67-01 1ere division territoriale masculins",
-          "numGroup": "M56670300G",
-          "nameGroup": "67-01 1DTM1",
-          "day": 3,
-          "datetime": null,
-          "nameClubRec": "BISCHOFFSHEIM SM1",
-          "numClubRec": 5667115,
-          "nameClubVis": "HOENHEIM SM2",
-          "numClubVis": 5667028,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": [
-              {
-                  "id": 1
-              },
-              {
-                  "id": 2
-              },
-              {
-                  "id": 3
-              }
-          ]
-      },
-      {
-          "id": 14,
-          "code": "SAEEPXC",
-          "competition": "67-03 3e division territoriale masculins",
-          "numGroup": "M56670200G",
-          "nameGroup": "D3TM PLE A",
-          "day": 3,
-          "datetime": null,
-          "nameClubRec": "AVENIR DURSTEL SM1",
-          "numClubRec": 5667021,
-          "nameClubVis": "HOENHEIM SM3",
-          "numClubVis": 5667028,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": [
-              {
-                  "id": 1
-              }
-          ]
-      },
-      {
-          "id": 15,
-          "code": "SAEEQJM",
-          "competition": "67-11 1ere division territoriale feminines",
-          "numGroup": "F56670001G",
-          "nameGroup": "D1TF",
-          "day": 3,
-          "datetime": null,
-          "nameClubRec": "HOENHEIM SF2",
-          "numClubRec": 5667028,
-          "nameClubVis": "WINGEN SUR MODER SF1",
-          "numClubVis": 5667057,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": [
-              {
-                  "id": 1
-              }
-          ]
-      },
-      {
-          "id": 16,
-          "code": "SAEFAGH",
-          "competition": "67-12 2e division territoriale feminine",
-          "numGroup": "F56670100G",
-          "nameGroup": "D2TF PLE A",
-          "day": 3,
-          "datetime": null,
-          "nameClubRec": "HOENHEIM SF3",
-          "numClubRec": 5667028,
-          "nameClubVis": "HAGUENAU SF1",
-          "numClubVis": 5667026,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": [
-              {
-                  "id": 1
-              },
-              {
-                  "id": 2
-              },
-              {
-                  "id": 3
-              },
-              {
-                  "id": 4
-              }
-          ]
-      },
-      {
-          "id": 17,
-          "code": "SAEEWBJ",
-          "competition": "56-01 championnat prenationale masculin",
-          "numGroup": "M56000001G",
-          "nameGroup": "56-PRENAT M",
-          "day": 3,
-          "datetime": null,
-          "nameClubRec": "HOENHEIM",
-          "numClubRec": 5667028,
-          "nameClubVis": "ASPTT BAR LE DUC ",
-          "numClubVis": 5655001,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": [
-              {
-                  "id": 1
-              },
-              {
-                  "id": 2
-              },
-              {
-                  "id": 3
-              },
-              {
-                  "id": 4
-              }
-          ]
-      },
-      {
-          "id": 18,
-          "code": "SAEEYPR",
-          "competition": "56-06 championnat u18 masculin",
-          "numGroup": "M56003503G",
-          "nameGroup": "56-U18M EXCEL POULE 3",
-          "day": 2,
-          "datetime": null,
-          "nameClubRec": "HOENHEIM U18M",
-          "numClubRec": 5667028,
-          "nameClubVis": "ENT MULHOUSE ACADEMIE U18M3",
-          "numClubVis": 5668003,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": [
-              {
-                  "id": 1
-              },
-              {
-                  "id": 2
-              },
-              {
-                  "id": 3
-              }
-          ]
-      },
-      {
-          "id": 19,
-          "code": "SAEEPGI",
-          "competition": "67-01 1ere division territoriale masculins",
-          "numGroup": "M56670300G",
-          "nameGroup": "67-01 1DTM1",
-          "day": 4,
-          "datetime": null,
-          "nameClubRec": "ENTZHEIM SM1 ",
-          "numClubRec": 5667122,
-          "nameClubVis": "HOENHEIM SM2",
-          "numClubVis": 5667028,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "ESPACE SPORTIF ET ASSOCIATIF \"L'ENVOL\"",
-          "addressHalle": " des sports",
-          "cpHalle": 67960,
-          "cityHalle": "ENTZHEIM",
-          "barmans": [
-              {
-                  "id": 1
-              },
-              {
-                  "id": 2
-              }
-          ]
-      },
-      {
-          "id": 20,
-          "code": "SAEEPXJ",
-          "competition": "67-03 3e division territoriale masculins",
-          "numGroup": "M56670200G",
-          "nameGroup": "D3TM PLE A",
-          "day": 4,
-          "datetime": null,
-          "nameClubRec": "HOERDT SM3",
-          "numClubRec": 5667029,
-          "nameClubVis": "HOENHEIM SM3",
-          "numClubVis": 5667028,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": [
-              {
-                  "id": 1
-              },
-              {
-                  "id": 2
-              },
-              {
-                  "id": 3
-              },
-              {
-                  "id": 4
-              },
-              {
-                  "id": 5
-              }
-          ]
-      },
-      {
-          "id": 21,
-          "code": "SAEEQJT",
-          "competition": "67-11 1ere division territoriale feminines",
-          "numGroup": "F56670001G",
-          "nameGroup": "D1TF",
-          "day": 4,
-          "datetime": null,
-          "nameClubRec": "VAL DE MODER SF1",
-          "numClubRec": 5667053,
-          "nameClubVis": "HOENHEIM SF2",
-          "numClubVis": 5667028,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "COSEC VAL DE MODER",
-          "addressHalle": " rue de l'ecole",
-          "cpHalle": 67350,
-          "cityHalle": "LA WALCK",
-          "barmans": [
-              {
-                  "id": 1
-              },
-              {
-                  "id": 2
-              },
-              {
-                  "id": 3
-              },
-              {
-                  "id": 4
-              }
-          ]
-      },
-      {
-          "id": 22,
-          "code": "SAEFAGO",
-          "competition": "67-12 2e division territoriale feminine",
-          "numGroup": "F56670100G",
-          "nameGroup": "D2TF PLE A",
-          "day": 4,
-          "datetime": null,
-          "nameClubRec": "HOCHFELDEN DETTWILLER SF2",
-          "numClubRec": 5667001,
-          "nameClubVis": "HOENHEIM SF3",
-          "numClubVis": 5667028,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": [
-              {
-                  "id": 1
-              },
-              {
-                  "id": 2
-              },
-              {
-                  "id": 3
-              },
-              {
-                  "id": 4
-              }
-          ]
-      },
-      {
-          "id": 23,
-          "code": "SAEEWBO",
-          "competition": "56-01 championnat prenationale masculin",
-          "numGroup": "M56000001G",
-          "nameGroup": "56-PRENAT M",
-          "day": 4,
-          "datetime": null,
-          "nameClubRec": "HOENHEIM",
-          "numClubRec": 5667028,
-          "nameClubVis": "AL NEUVES-MAISONS",
-          "numClubVis": 5654006,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": [
-              {
-                  "id": 1
-              },
-              {
-                  "id": 2
-              },
-              {
-                  "id": 3
-              },
-              {
-                  "id": 4
-              }
-          ]
-      },
-      {
-          "id": 24,
-          "code": "SAEEYPS",
-          "competition": "56-06 championnat u18 masculin",
-          "numGroup": "M56003503G",
-          "nameGroup": "56-U18M EXCEL POULE 3",
-          "day": 3,
-          "datetime": null,
-          "nameClubRec": "STRASBOURG SUD U18M",
-          "numClubRec": 5667118,
-          "nameClubVis": "HOENHEIM U18M",
-          "numClubVis": 5667028,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "0",
-          "addressHalle": "0",
-          "cpHalle": 0,
-          "cityHalle": "0",
-          "barmans": [
-              {
-                  "id": 1
-              }
-          ]
-      },
-      {
-          "id": 25,
-          "code": "SAEEHBO",
-          "competition": "nationale 2 feminine 2022-23",
-          "numGroup": "F50000205G",
-          "nameGroup": "POULE 6",
-          "day": 4,
-          "datetime": "2022-08-23T00:00:00.000",
-          "nameClubRec": "HOENHEIM",
-          "numClubRec": 5667028,
-          "nameClubVis": "CERCLE SPORTIF VESULIEN HAUTE SAONE",
-          "numClubVis": 5270001,
-          "referee1": 0,
-          "referee2": 0,
-          "nameHalle": "GYMNASE MUNICIPAL",
-          "addressHalle": "16 , rue des vosges",
-          "cpHalle": 67800,
-          "cityHalle": "HOENHEIM",
-          "barmans": [
-              {
-                  "id": 1
-              },
-              {
-                  "id": 2
-              },
-              {
-                  "id": 3
-              },
-              {
-                  "id": 4
-              },
-              {
-                  "id": 5
-              }
-          ]
-      }
+    {
+      "id": 0,
+      "state": "non joué",
+      "code": "SAEEHAY",
+      "competition": "nationale 2 feminine 2022-23",
+      "numGroup": "F50000205G",
+      "nameGroup": "POULE 6",
+      "day": 1,
+      "datetime": "2022-09-11T00:00:00.000",
+      "nameClubRec": "COLMAR CENTRE ALSACE",
+      "numClubRec": 5668119,
+      "nameClubVis": "HOENHEIM",
+      "numClubVis": 5667028,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "MONTAGNE VERTE",
+      "addressHalle": " place de la montagne verte",
+      "cpHalle": 68000,
+      "cityHalle": "COLMAR",
+      "barmen": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "code": "SAEEPFO",
+      "competition": "67-01 1ere division territoriale masculins",
+      "numGroup": "M56670300G",
+      "nameGroup": "67-01 1DTM1",
+      "day": 1,
+      "fdme": "http://google.fr",
+      "datetime": "2022-09-16T00:00:00.000",
+      "nameClubRec": "STRASBOURG ASPTT SM1",
+      "numClubRec": 5667006,
+      "nameClubVis": "HOENHEIM SM2",
+      "numClubVis": 5667028,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "CENTRE SPORTIF OUEST",
+      "addressHalle": "6 , chemin long",
+      "cpHalle": 67200,
+      "cityHalle": "STRASBOURG",
+      "barmen": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "code": "SAEEPWS",
+      "competition": "67-03 3e division territoriale masculins",
+      "numGroup": "M56670200G",
+      "nameGroup": "D3TM PLE A",
+      "day": 1,
+      "datetime": null,
+      "nameClubRec": "ALPHA HANDBALL SM2",
+      "numClubRec": 5667117,
+      "nameClubVis": "HOENHEIM SM3",
+      "numClubVis": 5667028,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": 0,
+      "cityHalle": "0",
+      "barmen": []
+    },
+    {
+      "id": 3,
+      "code": "SAEEQIY",
+      "competition": "67-11 1ere division territoriale feminines",
+      "numGroup": "F56670001G",
+      "nameGroup": "D1TF",
+      "day": 1,
+      "datetime": null,
+      "nameClubRec": "HOENHEIM SF2",
+      "numClubRec": 5667028,
+      "nameClubVis": "REICHSTETT SF2",
+      "numClubVis": 5667045,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": 0,
+      "cityHalle": "0",
+      "barmen": [
+        {
+          "id": 1
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "code": "SAEFAFT",
+      "competition": "67-12 2e division territoriale feminine",
+      "numGroup": "F56670100G",
+      "nameGroup": "D2TF PLE A",
+      "day": 1,
+      "datetime": null,
+      "nameClubRec": "HOENHEIM SF3",
+      "numClubRec": 5667028,
+      "nameClubVis": "AVENIR DURSTEL SARREBOURG SF1",
+      "numClubVis": 5667021,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": 0,
+      "cityHalle": "0",
+      "barmen": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "code": "SAEEWAZ",
+      "competition": "56-01 championnat prenationale masculin",
+      "numGroup": "M56000001G",
+      "nameGroup": "56-PRENAT M",
+      "day": 1,
+      "datetime": null,
+      "nameClubRec": "HOENHEIM",
+      "numClubRec": 5667028,
+      "nameClubVis": "TAISSY",
+      "numClubVis": 5651014,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": null,
+      "cityHalle": "0",
+      "barmen": [
+        {
+          "id": 1
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "code": "SAEEHBE",
+      "competition": "nationale 2 feminine 2022-23",
+      "numGroup": "F50000205G",
+      "nameGroup": "POULE 6",
+      "day": 2,
+      "datetime": "2022-09-17T00:00:00.000",
+      "nameClubRec": "HOENHEIM",
+      "numClubRec": 5667028,
+      "nameClubVis": "ENTENTE SAONE MAMIROLLE HB",
+      "numClubVis": 5225025,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "GYMNASE MUNICIPAL",
+      "addressHalle": "16 , rue des vosges",
+      "cpHalle": 67800,
+      "cityHalle": "HOENHEIM",
+      "barmen": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "code": "SAEEPFU",
+      "competition": "67-01 1ere division territoriale masculins",
+      "numGroup": "M56670300G",
+      "nameGroup": "67-01 1DTM1",
+      "day": 2,
+      "datetime": null,
+      "nameClubRec": "HOENHEIM SM2",
+      "numClubRec": 5667028,
+      "nameClubVis": "SOULTZ KUTZENHAUSEN SM1",
+      "numClubVis": 5667095,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": 0,
+      "cityHalle": "0",
+      "barmen": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "code": "SAEEQJF",
+      "competition": "67-11 1ere division territoriale feminines",
+      "numGroup": "F56670001G",
+      "nameGroup": "D1TF",
+      "day": 2,
+      "datetime": null,
+      "nameClubRec": "SELTZ SF2",
+      "numClubRec": 5667048,
+      "nameClubVis": "HOENHEIM SF2",
+      "numClubVis": 5667028,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": 0,
+      "cityHalle": "0",
+      "barmen": []
+    },
+    {
+      "id": 9,
+      "code": "SAEFAGA",
+      "competition": "67-12 2e division territoriale feminine",
+      "numGroup": "F56670100G",
+      "nameGroup": "D2TF PLE A",
+      "day": 2,
+      "datetime": null,
+      "nameClubRec": "SELTZ SF3",
+      "numClubRec": 5667048,
+      "nameClubVis": "HOENHEIM SF3",
+      "numClubVis": 5667028,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": 0,
+      "cityHalle": "0",
+      "barmen": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "code": "SAEEWBE",
+      "competition": "56-01 championnat prenationale masculin",
+      "numGroup": "M56000001G",
+      "nameGroup": "56-PRENAT M",
+      "day": 2,
+      "datetime": null,
+      "nameClubRec": "RC EPERNAY",
+      "numClubRec": 5651005,
+      "nameClubVis": "HOENHEIM",
+      "numClubVis": 5667028,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": 0,
+      "cityHalle": "0",
+      "barmen": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "code": "SAEEYPI",
+      "competition": "56-06 championnat u18 masculin",
+      "numGroup": "M56003503G",
+      "nameGroup": "56-U18M EXCEL POULE 3",
+      "day": 1,
+      "datetime": null,
+      "nameClubRec": "WITTENHEIM/ENSISHEIM U18M",
+      "numClubRec": 5668049,
+      "nameClubVis": "HOENHEIM U18M",
+      "numClubVis": 5667028,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": 0,
+      "cityHalle": "0",
+      "barmen": [
+        {
+          "id": 1
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "code": "SAEEHBJ",
+      "competition": "nationale 2 feminine 2022-23",
+      "numGroup": "F50000205G",
+      "nameGroup": "POULE 6",
+      "day": 3,
+      "datetime": "2022-09-24T00:00:00.000",
+      "nameClubRec": "CA PONTARLIER HANDBALL",
+      "numClubRec": 5225012,
+      "nameClubVis": "HOENHEIM",
+      "numClubVis": 5667028,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "GYMNASE DU LARMONT",
+      "addressHalle": " route du larmont",
+      "cpHalle": 25300,
+      "cityHalle": "PONTARLIER",
+      "barmen": []
+    },
+    {
+      "id": 13,
+      "code": "SAEEPGA",
+      "competition": "67-01 1ere division territoriale masculins",
+      "numGroup": "M56670300G",
+      "nameGroup": "67-01 1DTM1",
+      "day": 3,
+      "datetime": null,
+      "nameClubRec": "BISCHOFFSHEIM SM1",
+      "numClubRec": 5667115,
+      "nameClubVis": "HOENHEIM SM2",
+      "numClubVis": 5667028,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": 0,
+      "cityHalle": "0",
+      "barmen": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "code": "SAEEPXC",
+      "competition": "67-03 3e division territoriale masculins",
+      "numGroup": "M56670200G",
+      "nameGroup": "D3TM PLE A",
+      "day": 3,
+      "datetime": null,
+      "nameClubRec": "AVENIR DURSTEL SM1",
+      "numClubRec": 5667021,
+      "nameClubVis": "HOENHEIM SM3",
+      "numClubVis": 5667028,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": 0,
+      "cityHalle": "0",
+      "barmen": [
+        {
+          "id": 1
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "code": "SAEEQJM",
+      "competition": "67-11 1ere division territoriale feminines",
+      "numGroup": "F56670001G",
+      "nameGroup": "D1TF",
+      "day": 3,
+      "datetime": null,
+      "nameClubRec": "HOENHEIM SF2",
+      "numClubRec": 5667028,
+      "nameClubVis": "WINGEN SUR MODER SF1",
+      "numClubVis": 5667057,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": 0,
+      "cityHalle": "0",
+      "barmen": [
+        {
+          "id": 1
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "code": "SAEFAGH",
+      "competition": "67-12 2e division territoriale feminine",
+      "numGroup": "F56670100G",
+      "nameGroup": "D2TF PLE A",
+      "day": 3,
+      "datetime": null,
+      "nameClubRec": "HOENHEIM SF3",
+      "numClubRec": 5667028,
+      "nameClubVis": "HAGUENAU SF1",
+      "numClubVis": 5667026,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": 0,
+      "cityHalle": "0",
+      "barmen": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "code": "SAEEWBJ",
+      "competition": "56-01 championnat prenationale masculin",
+      "numGroup": "M56000001G",
+      "nameGroup": "56-PRENAT M",
+      "day": 3,
+      "datetime": null,
+      "nameClubRec": "HOENHEIM",
+      "numClubRec": 5667028,
+      "nameClubVis": "ASPTT BAR LE DUC ",
+      "numClubVis": 5655001,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": 0,
+      "cityHalle": "0",
+      "barmen": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "code": "SAEEYPR",
+      "competition": "56-06 championnat u18 masculin",
+      "numGroup": "M56003503G",
+      "nameGroup": "56-U18M EXCEL POULE 3",
+      "day": 2,
+      "datetime": null,
+      "nameClubRec": "HOENHEIM U18M",
+      "numClubRec": 5667028,
+      "nameClubVis": "ENT MULHOUSE ACADEMIE U18M3",
+      "numClubVis": 5668003,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": 0,
+      "cityHalle": "0",
+      "barmen": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "code": "SAEEPGI",
+      "competition": "67-01 1ere division territoriale masculins",
+      "numGroup": "M56670300G",
+      "nameGroup": "67-01 1DTM1",
+      "day": 4,
+      "datetime": null,
+      "nameClubRec": "ENTZHEIM SM1 ",
+      "numClubRec": 5667122,
+      "nameClubVis": "HOENHEIM SM2",
+      "numClubVis": 5667028,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "ESPACE SPORTIF ET ASSOCIATIF \"L'ENVOL\"",
+      "addressHalle": " des sports",
+      "cpHalle": 67960,
+      "cityHalle": "ENTZHEIM",
+      "barmen": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "code": "SAEEPXJ",
+      "competition": "67-03 3e division territoriale masculins",
+      "numGroup": "M56670200G",
+      "nameGroup": "D3TM PLE A",
+      "day": 4,
+      "datetime": null,
+      "nameClubRec": "HOERDT SM3",
+      "numClubRec": 5667029,
+      "nameClubVis": "HOENHEIM SM3",
+      "numClubVis": 5667028,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": 0,
+      "cityHalle": "0",
+      "barmen": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "code": "SAEEQJT",
+      "competition": "67-11 1ere division territoriale feminines",
+      "numGroup": "F56670001G",
+      "nameGroup": "D1TF",
+      "day": 4,
+      "datetime": null,
+      "nameClubRec": "VAL DE MODER SF1",
+      "numClubRec": 5667053,
+      "nameClubVis": "HOENHEIM SF2",
+      "numClubVis": 5667028,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "COSEC VAL DE MODER",
+      "addressHalle": " rue de l'ecole",
+      "cpHalle": 67350,
+      "cityHalle": "LA WALCK",
+      "barmen": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "code": "SAEFAGO",
+      "competition": "67-12 2e division territoriale feminine",
+      "numGroup": "F56670100G",
+      "nameGroup": "D2TF PLE A",
+      "day": 4,
+      "datetime": null,
+      "nameClubRec": "HOCHFELDEN DETTWILLER SF2",
+      "numClubRec": 5667001,
+      "nameClubVis": "HOENHEIM SF3",
+      "numClubVis": 5667028,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": 0,
+      "cityHalle": "0",
+      "barmen": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "code": "SAEEWBO",
+      "competition": "56-01 championnat prenationale masculin",
+      "numGroup": "M56000001G",
+      "nameGroup": "56-PRENAT M",
+      "day": 4,
+      "datetime": null,
+      "nameClubRec": "HOENHEIM",
+      "numClubRec": 5667028,
+      "nameClubVis": "AL NEUVES-MAISONS",
+      "numClubVis": 5654006,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": 0,
+      "cityHalle": "0",
+      "barmen": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "code": "SAEEYPS",
+      "competition": "56-06 championnat u18 masculin",
+      "numGroup": "M56003503G",
+      "nameGroup": "56-U18M EXCEL POULE 3",
+      "day": 3,
+      "datetime": null,
+      "nameClubRec": "STRASBOURG SUD U18M",
+      "numClubRec": 5667118,
+      "nameClubVis": "HOENHEIM U18M",
+      "numClubVis": 5667028,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "0",
+      "addressHalle": "0",
+      "cpHalle": 0,
+      "cityHalle": "0",
+      "barmen": [
+        {
+          "id": 1
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "code": "SAEEHBO",
+      "competition": "nationale 2 feminine 2022-23",
+      "numGroup": "F50000205G",
+      "nameGroup": "POULE 6",
+      "day": 4,
+      "datetime": "2022-08-23T00:00:00.000",
+      "nameClubRec": "HOENHEIM",
+      "numClubRec": 5667028,
+      "nameClubVis": "CERCLE SPORTIF VESULIEN HAUTE SAONE",
+      "numClubVis": 5270001,
+      "referee1": 0,
+      "referee2": 0,
+      "nameHalle": "GYMNASE MUNICIPAL",
+      "addressHalle": "16 , rue des vosges",
+      "cpHalle": 67800,
+      "cityHalle": "HOENHEIM",
+      "barmen": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        }
+      ]
+    }
   ]
 }

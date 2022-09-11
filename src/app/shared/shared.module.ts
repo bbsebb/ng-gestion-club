@@ -7,6 +7,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { TableChipFilterComponent } from './components/table-chip-filter/table-chip-filter.component';
 import { BetterDatePipe } from './pipes/better-date.pipe';
 import { SingleGameComponent } from './components/single-game/single-game.component';
+import { ClubNamePipe } from './pipes/club-name.pipe';
+import { LayoutModule } from '@angular/cdk/layout';
+import { GluePipe } from './pipes/glue.pipe';
+import { NullSubstitutionPipe } from './pipes/null-substitution.pipe';
+import { ListGamesCardComponent } from './list-games-card/list-games-card.component';
+import { RouterModule } from '@angular/router';
+import { SingleUserComponent } from './components/single-user/single-user.component';
+import { ListUsersCardComponent } from './components/list-users-card/list-users-card.component';
+import { AvatarDirective } from './directives/avatar.directive';
 
 
 
@@ -14,14 +23,23 @@ import { SingleGameComponent } from './components/single-game/single-game.compon
   declarations: [
     TableChipFilterComponent,
     BetterDatePipe,
-    SingleGameComponent
+    SingleGameComponent,
+    ClubNamePipe,
+    GluePipe,
+    NullSubstitutionPipe,
+    ListGamesCardComponent,
+    SingleUserComponent,
+    ListUsersCardComponent,
+    AvatarDirective
   ],
   imports: [
     CommonModule,
+    RouterModule,
     ReactiveFormsModule,
     MaterialModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    LayoutModule
   ],
   exports: [
     ReactiveFormsModule,
@@ -30,7 +48,14 @@ import { SingleGameComponent } from './components/single-game/single-game.compon
     HttpClientModule,
     TableChipFilterComponent,
     BetterDatePipe,
-    SingleGameComponent
+    SingleGameComponent,
+    ClubNamePipe,
+    GluePipe,
+    NullSubstitutionPipe,
+    ListGamesCardComponent,
+    SingleUserComponent,
+    ListUsersCardComponent,
+    AvatarDirective
   ]
 })
 export class SharedModule { }

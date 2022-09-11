@@ -1,0 +1,11 @@
+<mat-card *ngFor="let user of user$ | async " class="mat-elevation-z0">
+  <mat-card-header>
+  <div *ngIf="user.picture" mat-card-avatar [style.background-image]="'url('+user.picture+')'"
+    ></div>
+    <mat-card-title>{{user.name}} {{user.forename}}</mat-card-title>
+    <mat-card-subtitle>{{user.email}} {{user.tel}}</mat-card-subtitle>
+  </mat-card-header>
+
+</mat-card>
+
+

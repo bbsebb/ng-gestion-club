@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ChipsService } from './chips.service';
+import { FilterService } from './filter.service';
 
 describe('ChipsService', () => {
-  let service: ChipsService;
+  let service: FilterService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ChipsService);
+    service = TestBed.inject(FilterService);
   });
 
   it('should be created', () => {

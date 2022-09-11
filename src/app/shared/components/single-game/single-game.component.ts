@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { map, Observable, switchMap } from 'rxjs';
-import { Game } from '../../models/game.model';
-import { GamesService } from '../../services/games.service';
+import { map, Observable, switchMap, tap } from 'rxjs';
+import { GamesService } from 'src/app/core/services/games.service';
+import { Game } from '../../../core/models/game.model';
 
 @Component({
   selector: 'app-single-game',
@@ -11,7 +11,6 @@ import { GamesService } from '../../services/games.service';
 })
 export class SingleGameComponent implements OnInit {
   game$!: Observable<Game>;
-  game!: Game;
 
   displayAddInfo: boolean = false;
   iconeDisplayAddInfo: string = 'add';
@@ -22,8 +21,6 @@ export class SingleGameComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.table(this.router.snapshot.parent);
-
    this.game$ = this.router.paramMap.pipe(
       map((params: ParamMap) => params.get('id')),
       map((id) => {
@@ -35,7 +32,6 @@ export class SingleGameComponent implements OnInit {
       }),
       switchMap(id => this.gamesService.getGameById(id))
     );
-    this.game$.subscribe((game) => (this.game = game));
   }
 
   onDisplayAddInfo(): void {

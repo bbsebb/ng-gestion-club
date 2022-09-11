@@ -1,0 +1,33 @@
+<mat-card class="container" [formGroup]="formLogin">
+  <mat-card-title>Formulaire de connexion</mat-card-title>
+  <mat-card-content>
+    <mat-form-field appearance="standard">
+      <mat-label>Email</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="email"
+        placeholder="Ton email"
+      />
+      <mat-error>{{getFormControlErrorText(emailCtrl)}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Mot de passe</mat-label>
+      <input
+        type="password"
+        matInput
+        formControlName="password"
+        placeholder="Ton mot de passe"
+      />
+      <mat-error>{{getFormControlErrorText(emailCtrl)}}</mat-error>
+    </mat-form-field>
+    <small class="error-text" *ngIf="showErrorLoggin$ | async">
+      Le mot de passe ou le login n'est pas bon !
+    </small>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary">Envoyer</button>
+  </mat-card-actions>
+</mat-card>

@@ -5,7 +5,7 @@ import { BarComponent } from './components/bar/bar.component';
 import { ListGamesComponent } from './components/list-games/list-games.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 
-import { SingleUserComponent } from './components/single-user/single-user.component';
+import { SingleUserComponent } from '../shared/components/single-user/single-user.component';
 
 
 

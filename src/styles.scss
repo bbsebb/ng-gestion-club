@@ -29,3 +29,16 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+
+.mat-card-avatar {
+  background-size: cover;
+}
+
+.vignette {
+  margin-right:5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-size: cover;
+}

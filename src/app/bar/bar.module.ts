@@ -6,8 +6,8 @@ import { BarComponent } from './components/bar/bar.component';
 import { SharedModule } from '../shared/shared.module';
 import { ListGamesComponent } from './components/list-games/list-games.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
-import { SingleUserComponent } from './components/single-user/single-user.component';
-import { GamesService } from '../shared/services/games.service';
+import { SingleUserComponent } from '../shared/components/single-user/single-user.component';
+
 
 
 
@@ -15,8 +15,7 @@ import { GamesService } from '../shared/services/games.service';
   declarations: [
     BarComponent,
     ListGamesComponent,
-    ListUsersComponent,
-    SingleUserComponent
+    ListUsersComponent
   ],
   imports: [
     CommonModule,

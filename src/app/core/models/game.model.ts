@@ -32,6 +32,6 @@ export interface Game {
   cpHalle?: string;
   cityHalle?: string;
   barmen: [
-    id: number,
+    {id: number},
   ]
 }

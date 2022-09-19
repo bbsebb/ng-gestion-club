@@ -1,3 +1,13 @@
-<button mat-button routerLink="/auth/login">Login</button>
-<button mat-button routerLink="link">Inscription</button>
-<button mat-button routerLink="link">Logout</button>
+<button
+*ngIf="!(isLoggin$ | async)"
+ mat-button
+ (click)="onLogin()"
+ routerLink="/auth/login">
+  Login
+</button>
+<button mat-button (click)="onRegister()"
+*ngIf="!(isLoggin$ | async)">Inscription</button>
+<button mat-button
+*ngIf="isLoggin$ | async"
+ (click)="onLogout()"
+>Logout</button>

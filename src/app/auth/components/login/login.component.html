@@ -22,12 +22,21 @@
       />
       <mat-error>{{getFormControlErrorText(emailCtrl)}}</mat-error>
     </mat-form-field>
-    <small class="error-text" *ngIf="showErrorLoggin$ | async">
-      Le mot de passe ou le login n'est pas bon !
-    </small>
-  </mat-card-content>
 
+  </mat-card-content>
+  <small class="error-text" *ngIf="(showErrorLoggin$ | async) || showErrorServer">
+    Le mot de passe ou le login n'est pas bon !
+  </small>
   <mat-card-actions>
-    <button mat-raised-button color="primary">Envoyer</button>
+    <button mat-raised-button color="primary"
+    (click)="onLoggin()"
+    [disabled]="loading">
+    Loggin
+  </button>
   </mat-card-actions>
+  <mat-progress-bar
+          color="primary"
+          [value]="value"
+          [mode]="mode">
+      </mat-progress-bar>
 </mat-card>

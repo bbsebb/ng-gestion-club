@@ -1,0 +1,22 @@
+table {
+  width: 100%;
+}
+.container {
+  margin: 10px;
+}
+
+.mat-row:hover {
+  background-color: rgb(189, 189, 189);
+}
+
+.mat-column-day {
+
+  border-right: 1px solid currentColor;
+  padding-right: 24px;
+
+  text-align: center;
+}
+
+.mat-cell, .mat-header-cell {
+  padding-left: 5px;
+}

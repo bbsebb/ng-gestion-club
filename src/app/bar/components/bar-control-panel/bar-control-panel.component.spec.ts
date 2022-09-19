@@ -1,18 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BarControlPanelComponent } from './bar-control-panel.component';
 
-import { ListUsersComponent } from './list-users.component';
 
-describe('ListUsersComponent', () => {
-  let component: ListUsersComponent;
-  let fixture: ComponentFixture<ListUsersComponent>;
+
+describe('BarComponent', () => {
+  let component: BarControlPanelComponent;
+  let fixture: ComponentFixture<BarControlPanelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListUsersComponent ]
+      declarations: [ BarControlPanelComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ListUsersComponent);
+    fixture = TestBed.createComponent(BarControlPanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

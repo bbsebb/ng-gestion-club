@@ -10,12 +10,13 @@ import { UserService } from './user.service';
   providedIn: 'root',
 })
 export class AuthenticationService {
+    private readonly userAppStorageName = 'userApp';
     userApp$!:Observable<User | undefined>;
     private _userApp$: BehaviorSubject<User | undefined>;
 
 
   constructor(private http:HttpClient) {
-    const  userAppLocalStorage = localStorage.getItem('userApp');
+    const  userAppLocalStorage = localStorage.getItem(this.userAppStorageName);
     const userApp = ((userAppLocalStorage)? JSON.parse(userAppLocalStorage): undefined )
     this._userApp$ =  new BehaviorSubject<User | undefined>(userApp );
     this.userApp$ = this._userApp$.asObservable();
@@ -28,8 +29,24 @@ export class AuthenticationService {
         (users) => this.authentication(users, login, password)
       ),
       tap(userFound => this._userApp$.next(userFound)),
-      tap(userFound => localStorage.setItem('userApp',JSON.stringify(userFound)))
+      tap(userFound => localStorage.setItem(this.userAppStorageName,JSON.stringify(userFound)))
     )
+  }
+
+  getUserId(): number {
+    let userID = undefined;
+    this.userApp$.subscribe(
+      user => userID = user?.id
+    );
+    if(userID ==undefined ) {
+      throw new Error('Utilisateur non loggé');
+    }
+    return userID;
+  }
+
+  loggout():void {
+    localStorage.removeItem(this.userAppStorageName);
+    this._userApp$.next(undefined);
   }
 
   private authentication(users:User[],login:string, password: string):User {
@@ -51,6 +68,16 @@ export class AuthenticationService {
           return false;
         }
       })
+    )
+  }
+
+  isLoggable(login:string, password: string): Observable<boolean> {
+    return this.http.get<User[]>(`${environment.urlServer}/users`).pipe(
+      map(
+        (users) => {return (this.authentication(users, login, password))? true: false;}
+      ),
+      catchError(() => {return of(false)}),
+
     )
   }
 

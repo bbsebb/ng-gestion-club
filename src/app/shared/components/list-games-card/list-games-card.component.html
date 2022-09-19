@@ -1,4 +1,6 @@
-<div class="container" *ngFor="let game of games$ | async">
+<ng-container *ngIf="(games$ | async)?.length!=0; else noGame">
+<div class="container"
+*ngFor="let game of games$ | async">
   <div class="game" fxLayout="row" fxLayoutAlign="space-between center">
     <div fxFlex="0 1 60%">
       <div class="club-rec">{{ game.nameClubRec | clubName }}</div>
@@ -10,3 +12,9 @@
     </a>
   </div>
 </div>
+</ng-container>
+<ng-template #noGame>
+  <mat-card class="game-no-found" fxLayout="row" fxLayoutAlign="center center" color="primary">
+    Aucune rencontres trouvées
+  </mat-card>
+</ng-template>

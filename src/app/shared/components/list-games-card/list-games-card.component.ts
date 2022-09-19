@@ -1,9 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { filter, map, Observable, take } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Game } from 'src/app/core/models/game.model';
-import { GamesService } from 'src/app/core/services/games.service';
-import { GameFilters, IFilters } from '../models/filters.model';
-import { FilterService } from '../services/filter.service';
+
 
 @Component({
   selector: 'app-list-games-card',
@@ -13,11 +11,8 @@ import { FilterService } from '../services/filter.service';
 export class ListGamesCardComponent implements OnInit {
   @Input() games$!: Observable<Game[]>;
 
-
-
   constructor() {}
 
   ngOnInit(): void {
-
   }
 }

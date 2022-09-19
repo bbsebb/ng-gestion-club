@@ -2,20 +2,25 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BarRoutingModule } from './bar-routing.module';
-import { BarComponent } from './components/bar/bar.component';
+
 import { SharedModule } from '../shared/shared.module';
-import { ListGamesComponent } from './components/list-games/list-games.component';
-import { ListUsersComponent } from './components/list-users/list-users.component';
-import { SingleUserComponent } from '../shared/components/single-user/single-user.component';
+import { BarListGamesComponent } from './components/bar-list-games/bar-list-games.component';
+import { BarListUsersComponent } from './components/bar-list-users/bar-list-users.component';
+import { BarControlPanelComponent } from './components/bar-control-panel/bar-control-panel.component';
+import { BarComponent } from './components/bar/bar.component';
+import { BarSingleGameComponent } from './components/bar-single-game/bar-single-game.component';
+
 
 
 
 
 @NgModule({
   declarations: [
+    BarControlPanelComponent,
+    BarListGamesComponent,
+    BarListUsersComponent,
     BarComponent,
-    ListGamesComponent,
-    ListUsersComponent
+    BarSingleGameComponent
   ],
   imports: [
     CommonModule,

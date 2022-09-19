@@ -8,11 +8,11 @@ import { UserService } from 'src/app/core/services/user.service';
 import { IChips } from 'src/app/shared/models/chips.model';
 
 @Component({
-  selector: 'app-list-users',
-  templateUrl: './list-users.component.html',
-  styleUrls: ['./list-users.component.scss']
+  selector: 'app-bar-list-users',
+  templateUrl: './bar-list-users.component.html',
+  styleUrls: ['./bar-list-users.component.scss']
 })
-export class ListUsersComponent implements OnInit,AfterViewInit {
+export class BarListUsersComponent implements OnInit,AfterViewInit {
 
   chipsInfo: IChips<User>[] = [];
   dataSource = new MatTableDataSource<User>();

@@ -11,11 +11,12 @@ import { ClubNamePipe } from './pipes/club-name.pipe';
 import { LayoutModule } from '@angular/cdk/layout';
 import { GluePipe } from './pipes/glue.pipe';
 import { NullSubstitutionPipe } from './pipes/null-substitution.pipe';
-import { ListGamesCardComponent } from './list-games-card/list-games-card.component';
+
 import { RouterModule } from '@angular/router';
 import { SingleUserComponent } from './components/single-user/single-user.component';
 import { ListUsersCardComponent } from './components/list-users-card/list-users-card.component';
 import { AvatarDirective } from './directives/avatar.directive';
+import { ListGamesCardComponent } from './components/list-games-card/list-games-card.component';
 
 
 

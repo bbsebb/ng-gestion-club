@@ -64,7 +64,7 @@
       "cityHalle": "COLMAR",
       "barmen": [
         {
-          "id": 1
+          "id": 0
         },
         {
           "id": 2
@@ -101,7 +101,7 @@
       "cityHalle": "STRASBOURG",
       "barmen": [
         {
-          "id": 1
+          "id": 0
         },
         {
           "id": 2
@@ -146,11 +146,7 @@
       "addressHalle": "0",
       "cpHalle": 0,
       "cityHalle": "0",
-      "barmen": [
-        {
-          "id": 1
-        }
-      ]
+      "barmen": []
     },
     {
       "id": 4,

@@ -13,6 +13,9 @@ import { MatChipsModule } from "@angular/material/chips";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   exports: [
@@ -30,6 +33,9 @@ MatPaginatorModule,
 MatChipsModule,
 MatExpansionModule,
 MatFormFieldModule,
-MatInputModule ]
+MatInputModule,
+MatProgressSpinnerModule,
+MatProgressBarModule,
+MatTabsModule]
 })
 export class MaterialModule { }

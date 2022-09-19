@@ -10,28 +10,16 @@ import { Game } from '../../../core/models/game.model';
   styleUrls: ['./single-game.component.scss'],
 })
 export class SingleGameComponent implements OnInit {
-  game$!: Observable<Game>;
 
+  @Input() game$!: Observable<Game>;
   displayAddInfo: boolean = false;
   iconeDisplayAddInfo: string = 'add';
 
   constructor(
-    private gamesService: GamesService,
-    private router: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-   this.game$ = this.router.paramMap.pipe(
-      map((params: ParamMap) => params.get('id')),
-      map((id) => {
-        if (id) {
-          return +id;
-        } else {
-          throw new Error();
-        }
-      }),
-      switchMap(id => this.gamesService.getGameById(id))
-    );
+
   }
 
   onDisplayAddInfo(): void {

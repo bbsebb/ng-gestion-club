@@ -40,7 +40,7 @@ export class GameFilters implements IFilters<Game>{
   }
 
   static filterByDated() {
-    return new GameFilters('datetime',(datetime:any) => datetime)
+    return new GameFilters('datetime',(datetime:any) => (datetime)?true:false)
   }
 
   static filterByNextWE(nameField: keyof Game) {
@@ -55,6 +55,10 @@ export class GameFilters implements IFilters<Game>{
 
   static filterWithoutBarmen() {
     return new GameFilters('barmen',(barmen:{id:number}[]) => barmen.length == 0)
+  }
+
+  static filterBarmenId(id:any) {
+    return new GameFilters('barmen',(barmen:{id:number}[]) => barmen.some(barman => barman.id == id))
   }
 
 }

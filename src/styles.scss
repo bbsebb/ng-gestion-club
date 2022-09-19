@@ -2,6 +2,7 @@
 // src/styles.scss
 @use '../node_modules/@angular/material/' as mat;
 @use './app/shared/components/single-game/single-game.component-theme.scss' as single-game;
+@use './app/shared/components/list-games-card/list-games-card.component-theme' as list-games-card;
 
 
 @include mat.core();
@@ -19,6 +20,7 @@ $my-theme: mat.define-light-theme(
 
 @include mat.all-component-themes($my-theme);
 @include single-game.theme($my-theme);
+@include list-games-card.theme($my-theme);
 
 
 html,
@@ -34,6 +36,8 @@ body {
 .mat-card-avatar {
   background-size: cover;
 }
+
+
 
 .vignette {
   margin-right:5px;

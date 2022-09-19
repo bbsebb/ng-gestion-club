@@ -11,7 +11,9 @@ export class TableChipFilterComponent {
   @Input() chips!: IChips<any>[];
   @Output() eventChipFilter: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() {}
+  constructor() {
+
+  }
 
   onChipFilter(chip: MatChip): void {
     chip.toggleSelected();

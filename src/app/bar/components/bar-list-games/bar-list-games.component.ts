@@ -24,18 +24,23 @@ export class BarListGamesComponent implements OnInit, AfterViewInit {
       filterInfo: GameFilters.filterBarmenId(this.auth.getUserId()),
     },
     {
-      name: 'prochain Week end',
+      name: 'Prochain Week end',
       selected: false,
-      filterInfo: GameFilters.filterByNextWE('datetime'),
+      filterInfo: GameFilters.filterByNextWE(),
     },
     {
       name: 'Rencontres datées',
       selected: true,
       filterInfo: GameFilters.filterByDated(),
+    },
+    {
+      name: 'Sans barman',
+      selected: false,
+      filterInfo: GameFilters.filterWithoutBarmen(),
     }
   ];
 
-  chipFilters: {chipName:string, filtersInfo: IFilters<Game> } [] = [];
+
 
   dataSource = new MatTableDataSource<Game>();
 
@@ -47,10 +52,11 @@ export class BarListGamesComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
 
 
-    let initFilterChip:IFilters<Game>[] = []
+
 
     this.filters$.pipe(
       tap(filters => {
+        console.log(filters);
         this.chipsInfo.forEach(
           chip => {
             if(filters.includes(chip.name)) {
@@ -61,14 +67,8 @@ export class BarListGamesComponent implements OnInit, AfterViewInit {
       })
     ).subscribe();
 
-    this.chipsInfo.forEach(
-      chip => {
-        if(chip.selected) {
-          initFilterChip.push(chip.filterInfo);
-        };
-      }
-    )
-    this.filterData(initFilterChip).subscribe();
+
+    this.filterData().subscribe();
   }
 
   ngAfterViewInit(): void {
@@ -76,18 +76,18 @@ export class BarListGamesComponent implements OnInit, AfterViewInit {
   }
 
   onChipFilter(chip: string): void {
-
+    let chipFilters: {chipName:string, filtersInfo: IFilters<Game> } [] = [];
     for (const chipInfo of this.chipsInfo) {
       if(chip == chipInfo.name  ) {
         chipInfo.selected = !chipInfo.selected;
         if(chipInfo.selected) {
-          this.chipFilters.push({chipName:chipInfo.name,filtersInfo:chipInfo.filterInfo});
+          chipFilters.push({chipName:chipInfo.name,filtersInfo:chipInfo.filterInfo});
         } else {
-          this.chipFilters = this.chipFilters.filter(fi => fi.chipName != chipInfo.name);
+          chipFilters = chipFilters.filter(fi => fi.chipName != chipInfo.name);
         }
       }
     }
-    this.filterData(this.chipFilters.map(filtersInfoArray => filtersInfoArray.filtersInfo)).subscribe();
+    this.filterData(chipFilters.map(filtersInfoArray => filtersInfoArray.filtersInfo)).subscribe();
   }
 
 
@@ -102,14 +102,27 @@ export class BarListGamesComponent implements OnInit, AfterViewInit {
     this.gamesService.removeBarman(id).subscribe();
   }
 
-  private filterData(filtersInfo:IFilters<Game>[]): Observable<Game[]> {
+  private filterData(filtersInfo:IFilters<Game>[] = []): Observable<Game[]> {
 
     filtersInfo.push(Filters.filterByName<Game>('nameClubRec','hoenheim'));
+    filtersInfo.push(...this.filterDataFromChip());
     return this.gamesService.getAllGames(filtersInfo).pipe(
       tap((games) => {
         this.dataSource.data = games;
       })
     );
+  }
+
+  private filterDataFromChip():IFilters<Game>[] {
+    let initFilterChip:IFilters<Game>[] = [];
+    this.chipsInfo.forEach(
+      chip => {
+        if(chip.selected) {
+          initFilterChip.push(chip.filterInfo);
+        };
+      }
+    )
+    return initFilterChip;
   }
 }
 

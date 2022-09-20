@@ -56,8 +56,8 @@ export class BarControlPanelComponent implements OnInit {
     );
   }
 
-  onPlusGames(): void {
-    this.changeTab.emit({tab:'games',filters:['Mes rencontres']});
+  onPlusGames(filters?:string[]): void {
+    this.changeTab.emit({tab:'games',filters:filters});
   }
 
   onPlusBarmen(): void {

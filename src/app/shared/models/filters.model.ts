@@ -43,11 +43,11 @@ export class GameFilters implements IFilters<Game>{
     return new GameFilters('datetime',(datetime:any) => (datetime)?true:false)
   }
 
-  static filterByNextWE(nameField: keyof Game) {
+  static filterByNextWE() {
     let now = new Date();
     let plusSevenDay = new Date();
     plusSevenDay.setDate(plusSevenDay.getDate() + 7);
-    return new GameFilters(nameField,(name: Date) =>
+    return new GameFilters('datetime',(name: Date) =>
     {
       name = new Date(name);
       return name > now && name < plusSevenDay });

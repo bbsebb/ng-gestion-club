@@ -3,7 +3,7 @@
      <app-bar-control-panel (changeTab)="changeTabIndex($event)"></app-bar-control-panel>
     </mat-tab>
   <mat-tab [label]=tab[1]>
-     <app-bar-list-games [filters$]="filters$"></app-bar-list-games>
+     <app-bar-list-games [chipsSelected$]="filters$"></app-bar-list-games>
     </mat-tab>
   <mat-tab [label]=tab[2]>
     <app-bar-list-users></app-bar-list-users>

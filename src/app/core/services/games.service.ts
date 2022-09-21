@@ -2,10 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IFilters } from 'src/app/shared/models/filters.model';
 import { Game } from 'src/app/core/models/game.model';
-import { FilterService } from 'src/app/shared/services/filter.service';
 import { environment } from 'src/environments/environment';
 import { AuthenticationService } from './authentication.service';
 import { BehaviorSubject, map, Observable, switchMap, tap } from 'rxjs';
+import { FilterService } from './filter.service';
 
 @Injectable({
   providedIn: 'root',

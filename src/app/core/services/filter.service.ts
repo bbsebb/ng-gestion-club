@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { IFilters } from '../models/filters.model';
+import { IFilters } from 'src/app/shared/models/filters.model';
+
 
 
 @Injectable({

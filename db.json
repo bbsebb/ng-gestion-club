@@ -62,23 +62,7 @@
       "addressHalle": " place de la montagne verte",
       "cpHalle": 68000,
       "cityHalle": "COLMAR",
-      "barmen": [
-        {
-          "id": 0
-        },
-        {
-          "id": 2
-        },
-        {
-          "id": 3
-        },
-        {
-          "id": 4
-        },
-        {
-          "id": 5
-        }
-      ]
+      "barmen": []
     },
     {
       "id": 1,

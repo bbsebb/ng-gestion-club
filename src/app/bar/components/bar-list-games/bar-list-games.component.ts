@@ -2,12 +2,13 @@ import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/cor
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import {  Observable, tap } from 'rxjs';
+import {  BehaviorSubject, mergeMap, Observable, take, tap } from 'rxjs';
 import { Filters, GameFilters, IFilters } from 'src/app/shared/models/filters.model';
 import { IChips } from 'src/app/shared/models/chips.model';
 import { Game } from 'src/app/core/models/game.model';
 import { GamesService } from 'src/app/core/services/games.service';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
+import { FilterService } from 'src/app/core/services/filter.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { AuthenticationService } from 'src/app/core/services/authentication.serv
   styleUrls: ['./bar-list-games.component.scss'],
 })
 export class BarListGamesComponent implements OnInit, AfterViewInit {
-  @Input() filters$!:Observable<string[]>;
+  @Input() chipsSelected$!:Observable<string[]>;
   chipsInfo: IChips<Game>[] = [
     {
       name: 'Mes rencontres',
@@ -40,6 +41,10 @@ export class BarListGamesComponent implements OnInit, AfterViewInit {
     }
   ];
 
+  private _filters$:BehaviorSubject<IFilters<Game>[]> = new BehaviorSubject<IFilters<Game>[]>([]);
+  get filters$():Observable<IFilters<Game>[]> {
+    return this._filters$.asObservable();
+  }
 
 
   dataSource = new MatTableDataSource<Game>();
@@ -47,14 +52,23 @@ export class BarListGamesComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['day','competition','datetime', 'recevant','visiteur','nameHalle','city','actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private gamesService: GamesService, private router: Router, private auth:AuthenticationService) {}
+  constructor(private gamesService: GamesService,
+     private router: Router,
+      private auth:AuthenticationService,
+      private filterService: FilterService) {}
 
   ngOnInit(): void {
 
 
-
-
     this.filters$.pipe(
+      take(1),
+      tap(filters => {
+        filters.push(...this.filterDataFromChip());
+        this._filters$.next(filters);
+      })
+    ).subscribe();
+
+    this.chipsSelected$.pipe(
       tap(filters => {
         console.log(filters);
         this.chipsInfo.forEach(
@@ -87,7 +101,13 @@ export class BarListGamesComponent implements OnInit, AfterViewInit {
         }
       }
     }
-    this.filterData(chipFilters.map(filtersInfoArray => filtersInfoArray.filtersInfo)).subscribe();
+    this.filters$.pipe(
+      take(1),
+      tap(filters => {
+        filters = chipFilters.map(chipFilter => chipFilter.filtersInfo);
+        this._filters$.next(filters);
+      })
+    ).subscribe();
   }
 
 
@@ -104,13 +124,36 @@ export class BarListGamesComponent implements OnInit, AfterViewInit {
 
   private filterData(filtersInfo:IFilters<Game>[] = []): Observable<Game[]> {
 
+
+
     filtersInfo.push(Filters.filterByName<Game>('nameClubRec','hoenheim'));
     filtersInfo.push(...this.filterDataFromChip());
-    return this.gamesService.getAllGames(filtersInfo).pipe(
+
+    this.filters$.pipe(
+      take(1),
+      tap(filters => {
+        filters.push(...filtersInfo);
+        this._filters$.next(filters);
+      })
+    ).subscribe();
+
+    return this.filters$.pipe(
+      tap(filters => console.log(filters)),
+      mergeMap(filters =>
+        this.gamesService.getAllGames(filters).pipe()
+      ),
+      //tap(games => console.log(games)),
       tap((games) => {
         this.dataSource.data = games;
       })
     );
+
+
+    /* return this.gamesService.getAllGames().pipe(
+      tap((games) => {
+        this.dataSource.data = games;
+      })
+    ); */
   }
 
   private filterDataFromChip():IFilters<Game>[] {
@@ -123,6 +166,30 @@ export class BarListGamesComponent implements OnInit, AfterViewInit {
       }
     )
     return initFilterChip;
+  }
+
+  private addFilters(...newFilters:IFilters<Game>[]):void {
+    this.filters$.pipe(
+      take(1),
+      tap(filters => {
+        filters.push(...newFilters);
+        this._filters$.next(filters);
+      })
+    ).subscribe();
+  }
+
+
+
+  private removeFilter(newFilters:IFilters<Game>):void {
+    this.filters$.pipe(
+      take(1),
+      tap(filters => {
+        filters = filters.filter(filter =>
+          filter.filterFn != newFilters.filterFn
+          && filter.nameField != newFilters.nameField);
+        this._filters$.next(filters);
+      })
+    ).subscribe();
   }
 }
 

@@ -17,6 +17,7 @@ import { SingleUserComponent } from './components/single-user/single-user.compon
 import { ListUsersCardComponent } from './components/list-users-card/list-users-card.component';
 import { AvatarDirective } from './directives/avatar.directive';
 import { ListGamesCardComponent } from './components/list-games-card/list-games-card.component';
+import { CompetitionPipe } from './pipes/competition.pipe';
 
 
 
@@ -31,7 +32,8 @@ import { ListGamesCardComponent } from './components/list-games-card/list-games-
     ListGamesCardComponent,
     SingleUserComponent,
     ListUsersCardComponent,
-    AvatarDirective
+    AvatarDirective,
+    CompetitionPipe
   ],
   imports: [
     CommonModule,
@@ -52,6 +54,7 @@ import { ListGamesCardComponent } from './components/list-games-card/list-games-
     SingleGameComponent,
     ClubNamePipe,
     GluePipe,
+    CompetitionPipe,
     NullSubstitutionPipe,
     ListGamesCardComponent,
     SingleUserComponent,

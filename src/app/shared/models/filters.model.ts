@@ -1,4 +1,4 @@
-import { Game } from "src/app/core/models/game.model";
+
 
 export interface IFilters<T> {
   nameField: keyof T;
@@ -27,38 +27,3 @@ export class Filters<T> implements IFilters<T> {
 
 }
 
-export class GameFilters implements IFilters<Game>{
-  nameField: keyof Game;
-  filterFn: (name: any) => boolean;
-  private constructor(nameField: keyof Game,filterFn: (name: any) => boolean) {
-    this.nameField = nameField;
-    this.filterFn = filterFn;
-  };
-
-  static filterByHomeGame() {
-    return new GameFilters('numClubRec',(numClubRec:number) => numClubRec == 5667028)
-  }
-
-  static filterByDated() {
-    return new GameFilters('datetime',(datetime:any) => (datetime)?true:false)
-  }
-
-  static filterByNextWE() {
-    let now = new Date();
-    let plusSevenDay = new Date();
-    plusSevenDay.setDate(plusSevenDay.getDate() + 7);
-    return new GameFilters('datetime',(name: Date) =>
-    {
-      name = new Date(name);
-      return name > now && name < plusSevenDay });
-  }
-
-  static filterWithoutBarmen() {
-    return new GameFilters('barmen',(barmen:{id:number}[]) => barmen.length == 0)
-  }
-
-  static filterBarmenId(id:any) {
-    return new GameFilters('barmen',(barmen:{id:number}[]) => barmen.some(barman => barman.id == id))
-  }
-
-}

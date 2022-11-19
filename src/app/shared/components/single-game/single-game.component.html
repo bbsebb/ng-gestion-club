@@ -16,29 +16,28 @@
         >
           <span fxFlex="initial">J{{ game.day }}</span>
           <span fxFlex="grow">{{
-            game.datetime
-              | date: "cccc d MMMM yyyy"
-              | nullSubstitution: " Date inconnue"
+            game.dateTime
+              | date: "cccc d MMMM yyyy" | nullSubstitution
+
           }}</span>
           <span fxFlex="initial">{{
-            game.datetime | date: "HH:mm" | nullSubstitution: ""
-          }}</span>
+            game.dateTime | date: "HH:mm" | nullSubstitution
+          }} </span>
         </div>
         <mat-accordion>
           <mat-expansion-panel class="mat-elevation-z0">
             <mat-expansion-panel-header>
               <mat-panel-title>
-                {{ game.nameHalle | nullSubstitution: "Lieu inconnu" }}
+                {{ game.halle.name | nullSubstitution: "Lieu inconnu" }}
               </mat-panel-title>
               <mat-panel-description>
-                {{ game.cityHalle | nullSubstitution: "" }}
+                {{ game.halle.address.city | nullSubstitution: "" }}
               </mat-panel-description>
             </mat-expansion-panel-header>
             <p>
-              {{ game.addressHalle | nullSubstitution: "adresse inconnue" }}
-              {{ game.cpHalle | nullSubstitution: "" }}
-              {{ game.cityHalle | nullSubstitution: "" }} -
-              {{ game.glue | glue | uppercase }}
+              {{ game.halle.address.street | nullSubstitution: "adresse inconnue" }}
+              {{ game.halle.address.cp | nullSubstitution: "" }}
+              {{ game.halle.address.city | nullSubstitution: "" }}
             </p>
           </mat-expansion-panel>
         </mat-accordion>
@@ -49,8 +48,7 @@
         fxFlex="0 1 30%"
         fxLayoutAlign="center center"
       >
-        <div>{{ game.competition }}</div>
-        <div>{{ game.nameGroup }}</div>
+        <div>{{ game.pool.competition.name}}</div>
       </div>
     </div>
 
@@ -63,14 +61,14 @@
         fxLayoutAlign="center center"
       >
         <div class="game-equipe mat-headline" fxLayoutAlign="center center">
-          {{ game.nameClubRec | uppercase }} -
-          {{ game.nameClubVis | uppercase }}
+          {{ game.homeTeam.club.name| uppercase }} -
+          {{ game.visitingTeam.club.name | uppercase }}
         </div>
         <div class="game-score mat-title" fxLayoutAlign="center center">
-          {{ game.scoreclubRec }} - {{ game.scoreClubVis }}
+          {{ game.score.scoreHomeTeam }} - {{ game.score.scoreVisitingTeam }}
         </div>
         <div class="game-status mat-subheading-2" fxLayoutAlign="center center">
-          {{ game.state | uppercase }}
+          Jouer :  {{ game.played  }}
         </div>
         <div
           class="game-fdme mat-caption"
@@ -102,34 +100,31 @@
     <!-- cadre Poule -->
     <div class="container mat-elevation-z3">
       Arbitre :
-      <span *ngIf="game.referee1">
-        {{ game.referee1 }}
-      </span>
-      - <span *ngIf="game.referee1">{{ game.referee2 }}</span>
+
     </div>
 
     <!-- cadre arbitre -->
     <div
       class="container mat-elevation-z3"
-      *ngIf="game.state == 'joué' && game.timekeeper"
+
     >
-      Chrono : {{ game.timekeeper }}
+      Chrono
     </div>
 
     <!-- cadre chrono -->
     <div
       class="container mat-elevation-z3"
-      *ngIf="game.state == 'joué' && game.secretary"
+
     >
-      Secretaire : {{ game.secretary }}
+      Secretaire :
     </div>
 
     <!-- cadre Secretaire -->
     <div
       class="container mat-elevation-z3"
-      *ngIf="game.state == 'joué' && game.halleManager"
+
     >
-      Responsable salle : {{ game.halleManager }}
+      Responsable salle
     </div>
   </ng-container>
 </ng-container>

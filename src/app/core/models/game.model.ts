@@ -1,37 +1,23 @@
+import {Pool} from "./pool.model";
+import {Halle} from "./halle.model";
+import {Referee} from "./referee.model";
+import {Team} from "./team.model";
+import {Score} from "./score.model";
 
 
 export interface Game {
-  id: number;
-  type: 'championnat' | 'coupe' | 'amical';
-  state: 'joué' | 'non joué';
-  penalty: boolean,
-  forfeit:boolean,
-  glue:boolean,
-  fdme?: URL;
   code: string;
-  competition: string;
-  numGroup: string;
-  nameGroup: string;
+  pool: Pool;
   day: number;
-  datetime?: Date;
-  nameClubRec: string;
-  numClubRec:number;
-  scoreclubRec?:number,
-  nameClubVis: string;
-  numClubVis:number;
-  scoreClubVis?:number,
-  referee1?: string;
-  realReferee1?: string;
-  referee2?: string;
-  realReferee2?: string;
-  secretary?:string | number;
-  timekeeper?:string | number;
-  halleManager?:string | number;
-  nameHalle?: string;
-  addressHalle?: string;
-  cpHalle?: string;
-  cityHalle?: string;
-  barmen: [
-    {id: number},
-  ]
+  halle: Halle;
+  referee1: Referee;
+  referee2: Referee;
+  homeTeam: Team;
+  visitingTeam: Team;
+  fdme?: any;
+  barmen: any[];
+  score: Score;
+  dateTime: Date;
+  played: boolean;
 }
+

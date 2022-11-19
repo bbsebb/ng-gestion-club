@@ -20,6 +20,7 @@ export class SingleGameComponent implements OnInit {
 
   ngOnInit(): void {
 
+
   }
 
   onDisplayAddInfo(): void {

@@ -4,11 +4,17 @@ import { CommonModule } from '@angular/common';
 import { BarRoutingModule } from './bar-routing.module';
 
 import { SharedModule } from '../shared/shared.module';
-import { BarListGamesComponent } from './components/bar-list-games/bar-list-games.component';
-import { BarListUsersComponent } from './components/bar-list-users/bar-list-users.component';
-import { BarControlPanelComponent } from './components/bar-control-panel/bar-control-panel.component';
+
+
 import { BarComponent } from './components/bar/bar.component';
 import { BarSingleGameComponent } from './components/bar-single-game/bar-single-game.component';
+import { GamesBarService } from './services/games-bar.service';
+import { BarSingleBarmanComponent } from './components/bar-single-barman/bar-single-barman.component';
+import { BarmanService } from './services/barman.service';
+import { BarControlPanelComponent } from './components/bar/bar-control-panel/bar-control-panel.component';
+import { BarSingleGameActionsComponent } from './components/bar-single-game/bar-single-game-actions/bar-single-game-actions.component';
+import { BarListGamesComponent } from './components/bar/bar-list-games/bar-list-games.component';
+import { BarListUsersComponent } from './components/bar/bar-list-users/bar-list-users.component';
 
 
 
@@ -20,12 +26,18 @@ import { BarSingleGameComponent } from './components/bar-single-game/bar-single-
     BarListGamesComponent,
     BarListUsersComponent,
     BarComponent,
-    BarSingleGameComponent
+    BarSingleGameComponent,
+    BarSingleBarmanComponent,
+    BarSingleGameActionsComponent
   ],
   imports: [
     CommonModule,
     BarRoutingModule,
     SharedModule
+  ],
+  providers: [
+    GamesBarService,
+    BarmanService
   ]
 
 })

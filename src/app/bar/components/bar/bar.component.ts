@@ -1,19 +1,17 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTabGroup } from '@angular/material/tabs';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, map, Observable, tap } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-bar',
   templateUrl: './bar.component.html',
   styleUrls: ['./bar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BarComponent implements OnInit {
-  private _filters$:BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
-  get filters$():Observable<string[]> {
-    return this._filters$.asObservable();
-  }
-  ;
+
+
   tab: string[] = ['Control Panel', 'Rencontres', 'Barmen'];
   index: number = 0;
 
@@ -39,7 +37,7 @@ export class BarComponent implements OnInit {
   }
 
   changeTabIndex(pathValue: { tab: string; filters?: string[] }): void {
-    this._filters$.next(pathValue.filters ? pathValue.filters : []);
+
 
     switch (pathValue.tab) {
       case 'games':

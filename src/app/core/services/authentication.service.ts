@@ -1,10 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, ReplaySubject, tap,of,throwError, BehaviorSubject, catchError, switchMap } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
-import { UserApp } from '../models/userApp.model';
-import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',

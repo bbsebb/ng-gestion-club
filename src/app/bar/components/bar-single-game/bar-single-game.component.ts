@@ -1,36 +1,66 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { map, Observable, switchMap } from 'rxjs';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import {
+  map,
+  Observable
+} from 'rxjs';
 import { Game } from 'src/app/core/models/game.model';
-import { GamesService } from 'src/app/core/services/games.service';
+import { User } from 'src/app/core/models/user.model';
+import { AuthenticationService } from 'src/app/core/services/authentication.service';
+import { GamesBarService } from '../../services/games-bar.service';
+import {GamesService} from "../../../core/services/games.service";
 
 @Component({
   selector: 'app-bar-single-game',
   templateUrl: './bar-single-game.component.html',
-  styleUrls: ['./bar-single-game.component.scss']
+  styleUrls: ['./bar-single-game.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BarSingleGameComponent implements OnInit {
   game$!: Observable<Game>;
-  constructor(private gamesService: GamesService,
+  barmen$!: Observable<User[]>;
+  idGame!:number;
+
+  constructor(
+    private gamesService: GamesService,
+    private auth: AuthenticationService,
     private route: ActivatedRoute,
-    private router:Router) { }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.game$ = this.route.paramMap.pipe(
-      map((params: ParamMap) => params.get('id')),
-      map((id) => {
-        if (id) {
-          return +id;
-        } else {
-          throw new Error();
-        }
-      }),
-      switchMap(id => this.gamesService.getGameById(id))
-    );
+    this.route.params
+      .pipe(
+        map((params) => {
+          if (params['id']) {
+            return params['id'];
+          } else {
+            throw new Error();
+          }
+        })
+      )
+      .subscribe((idGame) => {
+
+        this.game$ = this.gamesService.getGameById(idGame);
+        this.idGame = idGame;
+      });
   }
 
-  onBack():void {
-    this.router.navigate(['bar','games'])
+
+
+
+  onAddBarman(): void {
+
+  }
+  onRemoveBarman(): void {
+
   }
 
+  onAddOrRemoveBarman(action: string) {
+
+  }
+
+  onBack(): void {
+    this.router.navigate(['bar', 'games']);
+  }
 }

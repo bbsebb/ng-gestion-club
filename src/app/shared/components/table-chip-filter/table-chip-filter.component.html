@@ -1,11 +1,14 @@
+
 <mat-chip-list
 fxLayout="row"
 fxLayoutAlign="center center"
 selectable
 multiple
-aria-label="filter selection">
+aria-label="filter selection"
+
+>
   <mat-chip
-    *ngFor="let chipElement of chips"
+    *ngFor="let chipElement of chips | async"
     #c="matChip"
     (click)="onChipFilter(c)"
     [value]="chipElement.name"

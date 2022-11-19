@@ -1,6 +1,9 @@
-<a mat-icon-button (click)="onBack()">
-  <mat-icon fontIcon="undo">
-  </mat-icon>
-</a>
+<app-bar-single-game-actions
+  [barmen$]="barmen$"
+  (onBackEvent)="onBack()"
+  (onAddOrRemoveBarman)="onAddOrRemoveBarman($event)"
+>
+</app-bar-single-game-actions>
+
 <app-single-game [game$]="game$"></app-single-game>
 

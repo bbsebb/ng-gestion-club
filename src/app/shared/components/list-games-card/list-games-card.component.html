@@ -3,11 +3,11 @@
 *ngFor="let game of games$ | async">
   <div class="game" fxLayout="row" fxLayoutAlign="space-between center">
     <div fxFlex="0 1 60%">
-      <div class="club-rec">{{ game.nameClubRec | clubName }}</div>
-      <div class="club-vis">{{ game.nameClubVis | clubName }}</div>
+      <div class="club-rec">{{ game.homeTeam.club.name | clubName }}</div>
+      <div class="club-vis">{{ game.visitingTeam.club.name | clubName }}</div>
     </div>
-    <div class="date">{{ game.datetime | date }}</div>
-    <a mat-icon-button routerLink="list-games/{{ game.id }}">
+    <div class="date">{{ game.dateTime | date }}</div>
+    <a mat-icon-button routerLink="list-games/{{ game.code }}">
       <mat-icon aria-label="label">arrow_forward</mat-icon>
     </a>
   </div>

@@ -1,5 +1,21 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MatChip } from '@angular/material/chips';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import {
+  MatChip,
+  MatChipList,
+  MatChipListChange,
+  MatChipSelectionChange,
+} from '@angular/material/chips';
+import { filter, map, Observable, tap } from 'rxjs';
 import { IChips } from '../../models/chips.model';
 
 @Component({
@@ -7,16 +23,25 @@ import { IChips } from '../../models/chips.model';
   templateUrl: './table-chip-filter.component.html',
   styleUrls: ['./table-chip-filter.component.scss'],
 })
-export class TableChipFilterComponent {
-  @Input() chips!: IChips<any>[];
-  @Output() eventChipFilter: EventEmitter<string> = new EventEmitter<string>();
+export class TableChipFilterComponent implements OnInit {
+  @Input() chips!: Observable<IChips<any>[]>;
+  @Output() eventChipFilter: EventEmitter<{name:string,selected:boolean}> = new EventEmitter<
+  {name:string,selected:boolean}
+  >();
 
-  constructor() {
+  @ViewChild(MatChipList, { static: false }) matChipList!: MatChipList;
+
+  constructor() {}
+  ngOnInit(): void {
 
   }
 
   onChipFilter(chip: MatChip): void {
-    chip.toggleSelected();
-    this.eventChipFilter.emit(chip.value);
+
+    this.eventChipFilter.emit({name:chip.value,selected:chip.selected})
   }
+
+
+
+
 }
